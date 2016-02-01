@@ -128,9 +128,9 @@ $options = array(
 							'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
 							'type'     => 'radio_image',
 							'choices' => array(
-								'test1' => 'http://localhost/wp/wp-admin//images/align-left-2x.png',
-								'test2' => 'http://localhost/wp/wp-admin//images/align-center-2x.png',
-								'test3' => 'http://localhost/wp/wp-admin//images/align-right-2x.png',
+								'test1' => get_home_url().'/wp-admin//images/align-left-2x.png',
+								'test2' => get_home_url().'/wp-admin//images/align-center-2x.png',
+								'test3' => get_home_url().'/wp-admin//images/align-right-2x.png',
 							)
 						),
 					),
@@ -180,9 +180,9 @@ $options = array(
 							'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
 							'type'     => 'checkbox_image',
 							'choices' => array(
-								'test1' => 'http://localhost/wp/wp-admin//images/align-left-2x.png',
-								'test2' => 'http://localhost/wp/wp-admin//images/align-center-2x.png',
-								'test3' => 'http://localhost/wp/wp-admin//images/align-right-2x.png',
+								'test1' => get_home_url().'/wp-admin//images/align-left-2x.png',
+								'test2' => get_home_url().'/wp-admin//images/align-center-2x.png',
+								'test3' => get_home_url().'/wp-admin//images/align-right-2x.png',
 							)
 						),
 					),

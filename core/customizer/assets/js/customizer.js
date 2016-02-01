@@ -280,7 +280,7 @@
 					},
 				});
 
-				$('<div class="ct-alpha-container"><div class="slider-alpha"></div><div class="transparency"></div></div>').appendTo(colorInput.parents('.wp-picker-container'));
+				$('<div class="ctf-alpha-container"><div class="slider-alpha"></div><div class="transparency"></div></div>').appendTo(colorInput.parents('.wp-picker-container'));
 
 				var $alpha_slider = colorInput.parents('.wp-picker-container:first').find('.slider-alpha');
 
@@ -320,6 +320,11 @@
 					// fix relationship between alpha slider and the 'side slider not updating.
 					var get_val = colorInput.val();
 					$(colorInput).wpColorPicker('color', get_val);
+				});
+				
+				
+				control.container.on( 'click', '.wp-picker-default', function() {
+					console.log("Clicked Default");
 				});
 			}
 		}
