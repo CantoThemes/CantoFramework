@@ -1,0 +1,456 @@
+/* */
+.wp-full-overlay.expanded{
+	margin-left: 360px;
+}
+.wp-full-overlay-sidebar{
+	width: 360px;
+}
+.wp-full-overlay.collapsed .wp-full-overlay-sidebar{
+	margin-left: -360px;
+}
+.customize-control{
+	margin-bottom: 0;
+}
+/*#customize-theme-controls .accordion-section-content{
+	padding: 0;
+}*/
+/*.customize-section-title{
+	margin: 0;
+}*/
+.customize-control select{
+	height: auto;
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+
+/* Custom CSS */
+.ctf-hidden{
+	display: none;
+}
+.ctf-btn{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	font-size: 14px;
+	background-color: #fff;
+	border-color: #E8E8E8;
+	border-width: 0 0 2px;
+	border-style: solid;
+	padding: 10px 20px;
+	cursor: pointer;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.ctf-btn:hover{
+	background-color: #06B3E6;
+	border-color: #009ecd;
+	color: #fff;
+}
+.ctf-cc-container{
+	padding: 20px 15px;
+	margin-left: -12px;
+	margin-right: -12px;
+	/*border-bottom: 1px solid #000;*/
+}
+
+.ctf-control-title{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+	margin-bottom: 5px;
+	display: block;
+	color: #000;
+}
+
+.ctf-customize-control-subtitle{
+	display: block;
+	margin-bottom: 15px;
+	color: #404040;
+	font-size: 14px;
+}
+
+.ctf-customize-control-description{
+	color: #A5A5A5;
+	margin-top: 20px;
+}
+
+input[type=text],
+input[type=password],
+/*input[type=checkbox],*/
+input[type=color],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=email],
+input[type=month],
+input[type=number],
+/*input[type=radio],*/
+input[type=tel],
+input[type=time],
+input[type=url],
+input[type=week],
+input[type=search],
+select,
+textarea{
+	padding: 10px 15px;
+	border-width: 0 0 2px;
+	border-style: solid;
+	border-color: #E8E8E8;
+	width: 100%;
+	box-shadow: none !important;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=checkbox]:focus,
+input[type=color]:focus,
+input[type=date]:focus,
+input[type=datetime]:focus,
+input[type=datetime-local]:focus,
+input[type=email]:focus,
+input[type=month]:focus,
+input[type=number]:focus,
+input[type=radio]:focus,
+input[type=tel]:focus,
+input[type=time]:focus,
+input[type=url]:focus,
+input[type=week]:focus,
+input[type=search]:focus,
+select:focus,
+textarea:focus{
+	border-color: #06B3E6;
+	box-shadow: 0 0 25px #E6E4E4;
+}
+
+.customize-control input[type=tel],
+.customize-control input[type=url],
+.customize-control input[type=text],
+.customize-control input[type=password],
+.customize-control input[type=email],
+.customize-control input[type=number],
+.customize-control input[type=search] {
+	width: 100%;
+}
+
+/* Spiner Input CSS */
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+	padding-right: 35px;
+    -moz-appearance:textfield;
+}
+.ui-spinner{
+	position: relative;
+}
+.ui-spinner-button{
+	position: absolute;
+	right: 0;
+	font-size: 8px;
+	display: inline-block;
+	width: 30px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	color: #777;
+	border-left: 1px solid #eee;
+	cursor: pointer;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.ui-spinner-button:hover{
+	color: #fff;
+	background-color: #06B3E6;
+}
+
+.ui-spinner-up{
+	top: -10px;
+	border-bottom: 1px solid #eee;
+}
+
+.ui-spinner-down{
+	bottom: -10px;
+}
+
+/* Custom Styled Select Input */
+.selectize-input{
+	border-width: 0 0 2px;
+	padding: 10px 15px;
+	border-color: #E8E8E8;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.selectize-input.focus{
+	border-color: #06B3E6;
+}
+
+.selectize-dropdown{
+	margin-top: 1px;
+}
+
+.selectize-control.single .selectize-input::after{
+	border-color: #777 transparent transparent;
+	right: 15px;
+	margin-top: -2px;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.selectize-control.single:hover .selectize-input::after{
+	border-color: #06B3E6 transparent transparent;
+}
+
+.selectize-control.single:hover .selectize-input.dropdown-active::after{
+	border-color:  transparent transparent #06B3E6 transparent;
+}
+
+/* Radio Input */
+.ctf-input-field-radio label{
+	display: block;
+	vertical-align: middle;
+	padding: 5px 0;
+	font-weight: 600;
+}
+.ctf-input-field-radio label span{
+	display: inline-block;
+	vertical-align: middle;
+}
+.ctf-input-field-radio label input[type="radio"]{
+	display: none;
+}
+
+.ctf-input-field-radio label input[type="radio"] + span.ctf-input-radio-box{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 20px;
+	border: 1px solid #D1D1D1;
+	background-color: #fff;
+	position: relative;
+	margin-right: 5px;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.ctf-input-field-radio label input[type="radio"] + span.ctf-input-radio-box::after{
+	content: '';
+	width: 8px;
+	height: 8px;
+	border-radius: 8px;
+	background-color: #06B3E6;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -4px;
+	margin-left: -4px;
+	-webkit-transform: scale(0);
+	-ms-transform: scale(0);
+	-o-transform: scale(0);
+	transform: scale(0);
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.ctf-input-field-radio label:hover input[type="radio"] + span.ctf-input-radio-box{
+	border-color: #06B3E6;
+}
+.ctf-input-field-radio label input[type="radio"]:checked + span.ctf-input-radio-box{
+	border-color: #06B3E6;
+}
+.ctf-input-field-radio label input[type="radio"]:checked + span.ctf-input-radio-box::after{
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+}
+
+/* Checkbox Input */
+.ctf-input-field-checkbox label{
+	display: block;
+	vertical-align: middle;
+	padding: 5px 0;
+	font-weight: 600;
+}
+.ctf-input-field-checkbox label span{
+	display: inline-block;
+	vertical-align: middle;
+}
+.ctf-input-field-checkbox label input[type="checkbox"]{
+	display: none;
+}
+
+.ctf-input-field-checkbox label input[type="checkbox"] + span.ctf-input-checkbox-box{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	/*border-radius: 20px;*/
+	border: 1px solid #D1D1D1;
+	background-color: #fff;
+	position: relative;
+	margin-right: 5px;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.ctf-input-field-checkbox label input[type="checkbox"] + span.ctf-input-checkbox-box::after{
+	content: '';
+	width: 8px;
+	height: 8px;
+	/*border-radius: 8px;*/
+	background-color: #06B3E6;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -4px;
+	margin-left: -4px;
+	-webkit-transform: scale(0);
+	-ms-transform: scale(0);
+	-o-transform: scale(0);
+	transform: scale(0);
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.ctf-input-field-checkbox label:hover input[type="checkbox"] + span.ctf-input-checkbox-box{
+	border-color: #06B3E6;
+}
+.ctf-input-field-checkbox label input[type="checkbox"]:checked + span.ctf-input-checkbox-box{
+	border-color: #06B3E6;
+}
+.ctf-input-field-checkbox label input[type="checkbox"]:checked + span.ctf-input-checkbox-box::after{
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+}
+
+/* Radio and Checkbox Image CSS */
+.ctf-input-field-radio-image label,
+.ctf-input-field-checkbox-image label{
+	display: inline-block;
+	float: left;
+	margin: 4px;
+}
+.ctf-input-field-radio-image label input[type="radio"],
+.ctf-input-field-checkbox-image label input[type="checkbox"]{
+	display: none;
+}
+.ctf-input-field-radio-image label input[type="radio"] + img.ctf-input-radio-img,
+.ctf-input-field-checkbox-image label input[type="checkbox"] + img.ctf-input-checkbox-img{
+	border-width: 3px;
+	border-style: solid;
+	border-color: transparent;
+}
+
+.ctf-input-field-radio-image label input[type="radio"]:checked + img.ctf-input-radio-img,
+.ctf-input-field-checkbox-image label input[type="checkbox"]:checked + img.ctf-input-checkbox-img{
+	border-color: #06B3E6;
+}
+
+/* Radio Image CSS */
+.ctf-input-field-radio-button label,
+.ctf-input-field-checkbox-button label{
+	display: inline-block;
+	float: left;
+	
+}
+
+/*.ctf-input-field-radio-button label:last-child,
+.ctf-input-field-checkbox-button label:last-child{
+	border-left: 0 solid #E8E8E8;
+}*/
+
+
+.ctf-input-field-radio-button label input[type="radio"],
+.ctf-input-field-checkbox-button label input[type="checkbox"]{
+	display: none;
+}
+
+.ctf-input-field-radio-button label input[type="radio"] + span,
+.ctf-input-field-checkbox-button label input[type="checkbox"] + span{
+	font-weight: 600;
+	padding: 10px 15px;
+	background-color: #fff;
+	border-bottom: 2px solid #E8E8E8;
+	border-left: 1px solid #E8E8E8;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.ctf-input-field-radio-button label:hover input[type="radio"] + span,
+.ctf-input-field-checkbox-button label:hover input[type="checkbox"] + span{
+	background-color: #F9F9F9;
+	border-bottom: 2px solid #06B3E6;
+}
+
+.ctf-input-field-radio-button label input[type="radio"]:checked + span,
+.ctf-input-field-checkbox-button label input[type="checkbox"]:checked + span{
+	color: #fff;
+	background-color: #06B3E6;
+	border-color: #009ecd;
+}
+
+/* Multi Text */
+.ctf-mt-input-item{
+	position: relative;
+	margin-bottom: 10px;
+}
+.ctf-mt-input-delete {
+    background-color: #e40a0a;
+    border-width: 0;
+    border-radius: 40px;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    line-height: 16px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    opacity: 0;
+    visibility: hidden;
+    text-transform: uppercase;
+    font-size: 10px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.ctf-mt-input-delete:hover{
+	-webkit-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
+}
+.ctf-mt-input-item:hover .ctf-mt-input-delete{
+	opacity: 1;
+	visibility: visible;
+}

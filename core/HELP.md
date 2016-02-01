@@ -1,0 +1,7 @@
+WP_Customize_Sidebar_Section
+WP_Customize_Section
+WP_Customize_Panel
+WP_Customize_Theme_Control
+WP_Customize_Cropped_Image_Control
+WP_Customize_Themes_Section
+WP_Customize_Filter_Setting
