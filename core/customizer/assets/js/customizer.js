@@ -266,7 +266,8 @@
 				var rgbaColorInput = colorInput.wpColorPicker({ // change some things with the color picker
 					clear: function(event, ui) {
 						// TODO reset Alpha Slider to 100
-						console.log('hi');
+						colorInput.val('');
+						control.setting.set( '' );
 					},
 					change: function(event, ui) {
 						// send ajax request to wp.customizer to enable Save & Publish button
@@ -326,11 +327,14 @@
 				
 				
 				colorInput.data('wpWpColorPicker').button.on( 'click', function() {
-					var iris = colorInput.data('a8cIris'),
-						color_picker = colorInput.data('wpWpColorPicker');
-
-					$alpha_slider.slider( "value", iris._color._alpha*100 );
-					$alpha_slider.find('.ui-slider-handle').text(iris._color._alpha*100);
+					
+					if($(this).hasClass( 'wp-picker-default' )){
+						var iris = colorInput.data('a8cIris'),
+							color_picker = colorInput.data('wpWpColorPicker');
+	
+						$alpha_slider.slider( "value", iris._color._alpha*100 );
+						$alpha_slider.find('.ui-slider-handle').text(iris._color._alpha*100);
+					}
 				});
 			}
 		}
