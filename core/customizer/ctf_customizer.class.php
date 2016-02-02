@@ -127,7 +127,7 @@ class CTF_Customizer
 						foreach ($section['options'] as $field) {
 							if (isset($field['setting']) && isset($field['control'])) {
 
-								$setting_id = $this->args['opt_name'].'['.$field['setting']['id'].']';
+								$setting_id = (isset($this->args['opt_name']) && !empty($this->args['opt_name'])) ? $this->args['opt_name'].'['.$field['setting']['id'].']' : $field['setting']['id'];
 								$setting_args = $field['setting'];
 
 								unset($setting_args['is']);
