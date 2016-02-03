@@ -263,7 +263,7 @@
 					return '#' + hex;
 				}
 
-				var rgbaColorInput = colorInput.wpColorPicker({ // change some things with the color picker
+				colorInput.wpColorPicker({ // change some things with the color picker
 					clear: function(event, ui) {
 						// TODO reset Alpha Slider to 100
 						colorInput.val('');
@@ -281,11 +281,10 @@
 					},
 				});
 
-				console.log(rgbaColorInput.data().wpWpColorPicker.button);
 
 				$('<div class="ctf-alpha-container"><div class="slider-alpha"></div><div class="transparency"></div></div>').appendTo(colorInput.parents('.wp-picker-container'));
 
-				var $alpha_slider = colorInput.parents('.wp-picker-container:first').find('.slider-alpha');
+				var alphaSlider = colorInput.parents('.wp-picker-container:first').find('.slider-alpha');
 
 				// if in format RGBA - grab A channel value
 				if (value.match(/rgba\(\d+\,\d+\,\d+\,([^\)]+)\)/)) {
@@ -294,7 +293,7 @@
 				} else {
 					var alpha_val = 100;
 				}
-				$alpha_slider.slider({
+				alphaSlider.slider({
 					slide: function(event, ui) {
 						$(this).find('.ui-slider-handle').text(ui.value); // show value on slider handle
 						// send ajax request to wp.customizer to enable Save & Publish button
@@ -311,7 +310,7 @@
 					min: 1,
 					max: 100
 				}); // slider
-				$alpha_slider.slider().on('slidechange', function(event, ui) {
+				alphaSlider.slider().on('slidechange', function(event, ui) {
 					var new_alpha_val = parseFloat(ui.value),
 						iris = colorInput.data('a8cIris'),
 						color_picker = colorInput.data('wpWpColorPicker');
@@ -329,11 +328,10 @@
 				colorInput.data('wpWpColorPicker').button.on( 'click', function() {
 					
 					if($(this).hasClass( 'wp-picker-default' )){
-						var iris = colorInput.data('a8cIris'),
-							color_picker = colorInput.data('wpWpColorPicker');
+						var iris = colorInput.data('a8cIris');
 	
-						$alpha_slider.slider( "value", iris._color._alpha*100 );
-						$alpha_slider.find('.ui-slider-handle').text(iris._color._alpha*100);
+						alphaSlider.slider( "value", iris._color._alpha*100 );
+						alphaSlider.find('.ui-slider-handle').text(iris._color._alpha*100);
 					}
 				});
 			}
