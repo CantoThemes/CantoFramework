@@ -15,10 +15,10 @@
         }
         #>
         <div class="ctf-input-field ctf-input-field-number">
-          <input type="number" value="{{ data.value }}" {{{ miniAttr }}} {{{ maxAttr }}} {{{ stepAttr }}} {{{ data.link }}}>
+          <input type="number" value="{{ data.value['value'] }}" {{{ miniAttr }}} {{{ maxAttr }}} {{{ stepAttr }}} {{{ data.link }}}>
           <select>
       			<# for ( key in data.choices['units'] ) { #>
-      				<option value="{{ key }}"<# if ( key === data.value ) { #>selected<# } #>>{{ data.choices['units'][ key ] }}</option>
+      				<option value="{{ key }}"<# if ( key === data.value['unit'] ) { #>selected<# } #>>{{ data.choices['units'][ key ] }}</option>
       			<# } #>
       		</select>
         </div>

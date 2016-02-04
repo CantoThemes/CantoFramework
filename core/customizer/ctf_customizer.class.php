@@ -65,6 +65,7 @@ class CTF_Customizer
 			'textarea',
 			'email',
 			'number',
+			'dimension',
 			'password',
 			'url',
 			'select',

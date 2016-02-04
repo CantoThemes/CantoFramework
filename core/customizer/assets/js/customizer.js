@@ -338,6 +338,40 @@
 		}
 	});
 	
+	api.controlConstructor.ctf_dimension = api.Control.extend( {
+		ready: function() {
+			var control = this;
+			
+			var numberInput = this.container.find( 'input' ),
+				selectUnit = this.container.find( 'select' ),
+				inputStep = numberInput.data('step'),
+				newValue = {};
+
+			if (!inputStep) {
+				inputStep = 1;
+			}
+
+			$( numberInput ).spinner({
+				step: inputStep,
+				/*spin: function( event, ui ) {
+					numberInput.trigger('change');
+				}*/
+			});
+
+			this.container.on( 'change keyup paste', 'input', function() {
+				newValue['value'] = numberInput.val();
+				newValue['unit'] = selectUnit.val();
+				control.setting.set( newValue );
+			});
+
+			this.container.on( 'click', '.ui-spinner-button', function() {
+				newValue['value'] = numberInput.val();
+				newValue['unit'] = selectUnit.val();
+				control.setting.set( newValue );
+			});
+		}
+	});
+	
 
 /*	api.controlConstructor.text = api.Control.extend( {
 		ready: function() {

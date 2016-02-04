@@ -232,6 +232,31 @@ $options = array(
 							)
 						),
 					),
+					array(
+						'setting' => array(
+							'id' => 'test_option_dimension',
+							'default' => array(
+								'value' => '25',
+								'unit' => 'px'
+							),
+							'type' => 'theme_mod',
+						),
+						'control' => array(
+							'label'    => __( 'Dimension Control', 'mytheme' ),
+							'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+							'type'     => 'dimension',
+							'choices' => array(
+								'min' => 0,
+								'max' => 40,
+								'step' => 1,
+								'units' => array (
+									'px' => 'PX',
+									'%' => '%',
+									'em' => 'EM'
+								)
+							)
+						),
+					),
 					
 				),
 			)
