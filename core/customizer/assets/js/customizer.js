@@ -359,15 +359,18 @@
 			});
 
 			this.container.on( 'change keyup paste', 'input', function() {
-				newValue['value'] = numberInput.val();
-				newValue['unit'] = selectUnit.val();
-				control.setting.set( newValue );
+				control.setting.set( numberInput.val()+selectUnit.val() );
 			});
 
 			this.container.on( 'click', '.ui-spinner-button', function() {
-				newValue['value'] = numberInput.val();
-				newValue['unit'] = selectUnit.val();
-				control.setting.set( newValue );
+				control.setting.set( numberInput.val()+selectUnit.val() );
+			});
+
+
+			$( selectUnit ).selectize();
+
+			this.container.on( 'change', 'select', function() {
+				control.setting.set( numberInput.val()+selectUnit.val() );
 			});
 		}
 	});

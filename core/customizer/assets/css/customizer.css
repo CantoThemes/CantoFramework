@@ -507,3 +507,17 @@ input[type=number] {
     background:#FFF;
     padding:0 11px 6px;
 }
+
+/* dimension */
+.ctf-input-field-dimension .ctf-input-dimension-number{
+	width: 75%;
+	float: left;
+	padding-right: 5px;
+	box-sizing:border-box;
+}
+
+.ctf-input-field-dimension .ctf-input-dimension-select{
+	width: 25%;
+	float: left;
+	box-sizing:border-box;
+}
