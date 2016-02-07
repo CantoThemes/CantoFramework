@@ -529,7 +529,7 @@ input[type=number] {
 .ctf-input-field-range input[type=range] {
   -webkit-appearance: none;
   width: 100%;
-  margin: 6.5px 0;
+  margin: 13px 0;
   background-color: transparent;
 }
 .ctf-input-field-range input[type=range]:focus {
@@ -630,8 +630,6 @@ input[type=number] {
 .ctf-input-field-google-font .ctf-if-gf-font-weight,
 .ctf-input-field-google-font .ctf-if-gf-font-size,
 .ctf-input-field-google-font .ctf-if-gf-line-height,
-.ctf-input-field-google-font .ctf-if-gf-text-decoration,
-.ctf-input-field-google-font .ctf-if-gf-font-style,
 .ctf-input-field-google-font .ctf-if-gf-letter-spacing,
 .ctf-input-field-google-font .ctf-if-gf-word-spacing{
 	width: 50%;

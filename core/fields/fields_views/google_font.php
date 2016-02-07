@@ -81,13 +81,6 @@
 					</select>
 				</div>
 			</div>
-
-			<div class="ctf-if-gf-text-decoration">
-				<label>Font Family</label>
-			</div>
-			<div class="ctf-if-gf-font-style">
-				<label>Font Family</label>
-			</div>
 			<div class="ctf-if-gf-letter-spacing ctf-input-field-dimension">
 				<#
 				var lsNumber = parseFloat( data.value['letter-spacing'] );
