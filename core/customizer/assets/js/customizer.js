@@ -409,16 +409,29 @@
 		ready: function() {
 			var control = this,
 				ffInput = control.container.find('.ctf-gf-ff-input'),
-				fwInput = control.container.find('.ctf-gf-fw-input');
+				fwInput = control.container.find('.ctf-gf-fw-input'),
+				fzValueInput = control.container.find('.ctf-gf-fz-value-input'),
+				fzUnitInput = control.container.find('.ctf-gf-fz-unit-input'),
+				lhValueInput = control.container.find('.ctf-gf-lh-value-input'),
+				lhUnitInput = control.container.find('.ctf-gf-lh-unit-input'),
+				lsValueInput = control.container.find('.ctf-gf-ls-value-input'),
+				lsUnitInput = control.container.find('.ctf-gf-ls-unit-input'),
+				wsValueInput = control.container.find('.ctf-gf-ws-value-input'),
+				wsUnitInput = control.container.find('.ctf-gf-ws-unit-input');
+
 
 			$( ffInput ).selectize();
 			$( fwInput ).selectize();
+			$( fzUnitInput ).selectize();
+			$( lhUnitInput ).selectize();
+			$( lsUnitInput ).selectize();
+			$( wsUnitInput ).selectize();
 
 			// console.log();
 
 			ffInput.on( 'change', function() {
 				var fwInputVal = fwInput.val(),
-					fwArray = ctf_google_fonts[ffInput.val()],
+					fwArray = ctf_google_fonts[ffInput.val()], /* global ctf_google_fonts */
 					fwNewOption = '';
 
 				// control.renderContent()
@@ -432,17 +445,17 @@
 						fwNewOption += '<option value="'+value+'" '+selected+'>'+value+'</option>';
 					});
 
-					console.log(fwNewOption);
-
-					fwInput.html(fwNewOption);
+					
 
 					var refreshData = $(fwInput).data('selectize');
 
 					refreshData.destroy();
+					
+					fwInput.html(fwNewOption);
 
 					setTimeout(function () {
 						$( fwInput ).selectize();
-					}, 100);
+					}, 5);
 				}
 			});
 

@@ -208,6 +208,12 @@ $options = array(
 							'id' => 'test_option_typo',
 							'default' => array(
 								'font-family' => 'Open Sans',
+								'font-weight' => '300',
+								'font-size' => '24px',
+								'line-height' => '40px',
+								'letter-spacing' => '2px',
+								'word-spacing' => '5px',
+								'text-align' => 'center'
 							),
 							'type' => 'theme_mod',
 						),
