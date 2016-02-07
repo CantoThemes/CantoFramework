@@ -116,6 +116,10 @@ textarea{
 	transition: all 0.5s;
 }
 
+select{
+	max-height: 40px;
+}
+
 input[type=text]:focus,
 input[type=password]:focus,
 input[type=checkbox]:focus,
@@ -625,6 +629,9 @@ input[type=number] {
 }
 
 /* Google font controll css */
+.ctf-input-field-google-font{
+	margin-right: -5px;
+}
 .ctf-input-field-google-font .ctf-if-gf-font-family,
 .ctf-input-field-google-font .ctf-if-gf-font-size,
 .ctf-input-field-google-font .ctf-if-gf-font-weight,
@@ -636,6 +643,7 @@ input[type=number] {
 	float: left;
 	box-sizing:border-box;
 	padding-right: 5px;
+	margin-bottom: 12px;
 }
 
 .ctf-input-field-google-font .ctf-if-gf-font-family{
@@ -647,7 +655,7 @@ input[type=number] {
 
 .ctf-input-field-google-font .ctf-input-field-dimension .ctf-input-dimension-number{
 	width: 50%;
-	padding-right: 1px;
+	padding-right: 2px;
 }
 
 .ctf-input-field-google-font .ctf-input-field-dimension .ctf-input-dimension-select{
@@ -658,4 +666,9 @@ input[type=number] {
 	clear: both;
 	display: block;
 	padding-bottom: 5px;
+}
+
+.ctf-input-field-google-font input[type=number]{
+	padding-left: 8px;
+	padding-right: 30px;
 }

@@ -213,7 +213,6 @@ $options = array(
 								'line-height' => '40px',
 								'letter-spacing' => '2px',
 								'word-spacing' => '5px',
-								'text-align' => 'center'
 							),
 							'type' => 'theme_mod',
 						),
@@ -222,9 +221,12 @@ $options = array(
 							'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
 							'type'     => 'google_font',
 							'choices' => array(
-								'min' => 0,
-								'max' => 50,
-								'step' => 0.5
+								'font-family' => 1,
+								'font-weight' => 1,
+								'font-size' => 1,
+								'line-height' => 1,
+								'letter-spacing' => 1,
+								'word-spacing' => 1,
 							)
 						),
 					),

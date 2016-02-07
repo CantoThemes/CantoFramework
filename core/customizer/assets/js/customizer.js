@@ -408,6 +408,7 @@
 	api.controlConstructor.ctf_google_font = api.Control.extend( {
 		ready: function() {
 			var control = this,
+				allNewVals = {},
 				ffInput = control.container.find('.ctf-gf-ff-input'),
 				fwInput = control.container.find('.ctf-gf-fw-input'),
 				fzValueInput = control.container.find('.ctf-gf-fz-value-input'),
@@ -422,10 +423,42 @@
 
 			$( ffInput ).selectize();
 			$( fwInput ).selectize();
+
 			$( fzUnitInput ).selectize();
 			$( lhUnitInput ).selectize();
 			$( lsUnitInput ).selectize();
 			$( wsUnitInput ).selectize();
+
+			$( fzValueInput ).spinner();
+			$( lhValueInput ).spinner();
+			$( lsValueInput ).spinner();
+			$( wsValueInput ).spinner();
+
+			console.log(ffInput.size());
+
+			if (ffInput.size()) {
+				allNewVals['font-family'] = control.setting._value['font-family'];
+			}
+
+			if (fwInput.size()) {
+				allNewVals['font-weight'] = control.setting._value['font-weight'];
+			}
+
+			if (fzValueInput.size()) {
+				allNewVals['font-size'] = control.setting._value['font-size'];
+			}
+
+			if (lhValueInput.size()) {
+				allNewVals['line-height'] = control.setting._value['line-height'];
+			}
+
+			if (lsValueInput.size()) {
+				allNewVals['letter-spacing'] = control.setting._value['letter-spacing'];
+			}
+
+			if (wsValueInput.size()) {
+				allNewVals['word-spacing'] = control.setting._value['word-spacing'];
+			}
 
 			// console.log();
 
@@ -453,10 +486,117 @@
 					
 					fwInput.html(fwNewOption);
 
-					setTimeout(function () {
-						$( fwInput ).selectize();
-					}, 5);
+					$( fwInput ).selectize();
+
+					// setTimeout(function () {
+					// 	$( fwInput ).selectize();
+					// }, 5);
 				}
+
+				allNewVals['font-family'] = ffInput.val();
+
+				control.setting.set( allNewVals );
+
+				api.previewer.refresh();
+			});
+
+			// fwInput.on( 'change', function() {
+			// 	allNewVals['font-weight'] = fwInput.val();
+			// 	control.setting.set( allNewVals );
+
+			// 	api.previewer.refresh();
+			// });
+
+			this.container.on( 'change keyup paste', 'input[type="number"]', function() {
+				if (ffInput.size()) {
+					allNewVals['font-family'] = ffInput.val();
+				}
+
+				if (fwInput.size()) {
+					allNewVals['font-weight'] = fwInput.val();
+				}
+
+				if (fzValueInput.size()) {
+					allNewVals['font-size'] = fzValueInput.val()+fzUnitInput.val();
+				}
+
+				if (lhValueInput.size()) {
+					allNewVals['line-height'] = lhValueInput.val()+lhUnitInput.val();
+				}
+
+				if (lsValueInput.size()) {
+					allNewVals['letter-spacing'] = lsValueInput.val()+lsUnitInput.val();
+				}
+
+				if (wsValueInput.size()) {
+					allNewVals['word-spacing'] = wsValueInput.val()+wsUnitInput.val();
+				}
+
+				control.setting.set( allNewVals );
+
+				api.previewer.refresh();
+			});
+
+			this.container.on( 'click', '.ui-spinner-button', function() {
+				if (ffInput.size()) {
+					allNewVals['font-family'] = ffInput.val();
+				}
+
+				if (fwInput.size()) {
+					allNewVals['font-weight'] = fwInput.val();
+				}
+
+				if (fzValueInput.size()) {
+					allNewVals['font-size'] = fzValueInput.val()+fzUnitInput.val();
+				}
+
+				if (lhValueInput.size()) {
+					allNewVals['line-height'] = lhValueInput.val()+lhUnitInput.val();
+				}
+
+				if (lsValueInput.size()) {
+					allNewVals['letter-spacing'] = lsValueInput.val()+lsUnitInput.val();
+				}
+
+				if (wsValueInput.size()) {
+					allNewVals['word-spacing'] = wsValueInput.val()+wsUnitInput.val();
+				}
+
+				control.setting.set( allNewVals );
+
+				api.previewer.refresh();
+			});
+
+			this.container.on( 'change', 'select:not(.ctf-gf-ff-input)', function() {
+				if (ffInput.size()) {
+					allNewVals['font-family'] = ffInput.val();
+				}
+
+				if (fwInput.size()) {
+					allNewVals['font-weight'] = fwInput.val();
+				}
+
+				if (fzValueInput.size()) {
+					allNewVals['font-size'] = fzValueInput.val()+fzUnitInput.val();
+				}
+
+				if (lhValueInput.size()) {
+					allNewVals['line-height'] = lhValueInput.val()+lhUnitInput.val();
+				}
+
+				if (lsValueInput.size()) {
+					allNewVals['letter-spacing'] = lsValueInput.val()+lsUnitInput.val();
+				}
+
+				if (wsValueInput.size()) {
+					allNewVals['word-spacing'] = wsValueInput.val()+wsUnitInput.val();
+				}
+
+				control.setting.set( allNewVals );
+
+				console.log('Other Called');
+
+				api.previewer.refresh();
 			});
 
 

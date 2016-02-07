@@ -1,24 +1,4 @@
         <div class="ctf-input-field ctf-input-field-google-font">
-        	<div class="ctf-if-gf-text-align clearfix">
-        		<div class="ctf-input-field-radio-button clearfix">
-        			<label>
-						<input type="radio" value="left" name="ctf_radio_input_{{{ data.id }}}_text_align" <# if ( 'left' === data.value['text-align'] ) { #>checked="checked"<# } #> > 
-						<span class="ctf-input-radio-button"><i class="fa fa-align-left"></i></span>
-					</label>
-					<label>
-						<input type="radio" value="center" name="ctf_radio_input_{{{ data.id }}}_text_align" <# if ( 'center' === data.value['text-align'] ) { #>checked="checked"<# } #> > 
-						<span class="ctf-input-radio-button"><i class="fa fa-align-center"></i></span>
-					</label>
-					<label>
-						<input type="radio" value="right" name="ctf_radio_input_{{{ data.id }}}_text_align" <# if ( 'right' === data.value['text-align'] ) { #>checked="checked"<# } #> > 
-						<span class="ctf-input-radio-button"><i class="fa fa-align-right"></i></span>
-					</label>
-					<label>
-						<input type="radio" value="justify" name="ctf_radio_input_{{{ data.id }}}_text_align" <# if ( 'justify' === data.value['text-align'] ) { #>checked="checked"<# } #> > 
-						<span class="ctf-input-radio-button"><i class="fa fa-align-justify"></i></span>
-					</label>
-        		</div>
-        	</div>
 			<div class="ctf-if-gf-font-family">
 				<label>Font Family</label>
 				<# console.log(data.value); #>
@@ -30,7 +10,7 @@
 			</div>
 			<div class="ctf-if-gf-font-weight">
 				<# var fontWeights = ctf_google_fonts[data.value['font-family']]; #>
-				<label>Font Family</label>
+				<label>Font Weight</label>
 				<select class="ctf-gf-fw-input">
 					<# for ( key in fontWeights ) { #>
 						<option value="{{ fontWeights[ key ] }}"<# if ( fontWeights[ key ] === data.value['font-weight'] ) { #>selected<# } #>>{{ fontWeights[ key ] }}</option>
@@ -47,7 +27,7 @@
 		        	units = data.choices['units'];
 		        }
 				#>
-				<label>Font Family</label>
+				<label>Font Size</label>
 				<div class="ctf-input-dimension-number">
 					<input type="number" value="{{ fzNumber }}" min="0" class="ctf-gf-fz-value-input">
 				</div>
@@ -69,7 +49,7 @@
 		        	units = data.choices['units'];
 		        }
 				#>
-				<label>Font Family</label>
+				<label>Line Height</label>
 				<div class="ctf-input-dimension-number">
 					<input type="number" value="{{ lhNumber }}" min="0" class="ctf-gf-lh-value-input">
 				</div>
@@ -91,7 +71,7 @@
 		        	units = data.choices['units'];
 		        }
 				#>
-				<label>Font Family</label>
+				<label>Latter Spacing</label>
 				<div class="ctf-input-dimension-number">
 					<input type="number" value="{{ lsNumber }}" min="0" class="ctf-gf-ls-value-input">
 				</div>
@@ -113,7 +93,7 @@
 		        	units = data.choices['units'];
 		        }
 				#>
-				<label>Font Family</label>
+				<label>Word Spacing</label>
 				<div class="ctf-input-dimension-number">
 					<input type="number" value="{{ wsNumber }}" min="0" class="ctf-gf-ws-value-input">
 				</div>
