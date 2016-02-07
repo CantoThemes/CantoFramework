@@ -1,4 +1,5 @@
         <div class="ctf-input-field ctf-input-field-google-font">
+        	<# if( parseFloat(data.choices['font-family']) || _.isUndefined(data.choices['font-family']) ){ #>
 			<div class="ctf-if-gf-font-family">
 				<label>Font Family</label>
 				<# console.log(data.value); #>
@@ -8,6 +9,7 @@
 					<# } #>
 				</select>
 			</div>
+			<# } #>
 			<div class="ctf-if-gf-font-weight">
 				<# var fontWeights = ctf_google_fonts[data.value['font-family']]; #>
 				<label>Font Weight</label>
