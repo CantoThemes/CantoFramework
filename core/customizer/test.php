@@ -205,6 +205,25 @@ $options = array(
 					),
 					array(
 						'setting' => array(
+							'id' => 'test_option_typo',
+							'default' => array(
+								'font-family' => 'Open Sans',
+							),
+							'type' => 'theme_mod',
+						),
+						'control' => array(
+							'label'    => __( 'Google Font Control', 'mytheme' ),
+							'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+							'type'     => 'google_font',
+							'choices' => array(
+								'min' => 0,
+								'max' => 50,
+								'step' => 0.5
+							)
+						),
+					),
+					array(
+						'setting' => array(
 							'id' => 'test_option_email',
 							'default' => 'test@test.com',
 							'type' => 'theme_mod',
@@ -228,7 +247,7 @@ $options = array(
 							'choices' => array(
 								'min' => 0,
 								'max' => 40,
-								'step' => 1
+								'step' => 0.5
 							)
 						),
 					),
@@ -251,6 +270,24 @@ $options = array(
 									'%',
 									'em'
 								)
+							)
+						),
+					),
+
+					array(
+						'setting' => array(
+							'id' => 'test_option_range',
+							'default' => '25',
+							'type' => 'theme_mod',
+						),
+						'control' => array(
+							'label'    => __( 'Range Control', 'mytheme' ),
+							'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+							'type'     => 'range',
+							'choices' => array(
+								'min' => 0,
+								'max' => 50,
+								'step' => 0.5
 							)
 						),
 					),

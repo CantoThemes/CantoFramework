@@ -14,6 +14,11 @@
         	stepAttr = 'step="'+data.choices[ 'step' ]+'"';
         }
         #>
-        <div class="ctf-input-field ctf-input-field-number">
-          <input type="number" value="{{ data.value }}" {{{ miniAttr }}} {{{ maxAttr }}} {{{ stepAttr }}} {{{ data.link }}}>
+        <div class="ctf-input-field ctf-input-field-range">
+          <div class="ctf-if-range-cont">
+          	<input type="range" value="{{ data.value }}" {{{ miniAttr }}} {{{ maxAttr }}} {{{ stepAttr }}} >
+          </div>
+          <div class="ctf-if-txt-cont">
+          	<input type="number" value="{{ data.value }}" {{{ miniAttr }}} {{{ maxAttr }}} {{{ stepAttr }}} >
+          </div>
         </div>

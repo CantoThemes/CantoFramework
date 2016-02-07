@@ -40,7 +40,7 @@
 			var control = this;
 			
 			var numberInput = this.container.find( 'input' ),
-				inputStep = numberInput.data('step');
+				inputStep = numberInput.attr('step');
 
 			if (!inputStep) {
 				inputStep = 1
@@ -344,7 +344,7 @@
 			
 			var numberInput = this.container.find( 'input' ),
 				selectUnit = this.container.find( 'select' ),
-				inputStep = numberInput.data('step'),
+				inputStep = numberInput.attr('step'),
 				newValue = {};
 
 			if (!inputStep) {
@@ -352,10 +352,7 @@
 			}
 
 			$( numberInput ).spinner({
-				step: inputStep,
-				/*spin: function( event, ui ) {
-					numberInput.trigger('change');
-				}*/
+				step: inputStep
 			});
 
 			this.container.on( 'change keyup paste', 'input', function() {
@@ -372,6 +369,88 @@
 			this.container.on( 'change', 'select', function() {
 				control.setting.set( numberInput.val()+selectUnit.val() );
 			});
+		}
+	});
+
+
+	api.controlConstructor.ctf_range = api.Control.extend( {
+		ready: function() {
+			var control = this,
+				rangeInput = this.container.find('input[type="range"]'),
+				textInput = this.container.find('input[type="number"]'),
+				inputStep = textInput.attr('step');
+
+			if (!inputStep) {
+				inputStep = 1;
+			}
+
+			$( textInput ).spinner({
+				step: inputStep
+			});
+
+			this.container.on( 'change keyup paste', 'input[type="number"]', function() {
+				rangeInput.val(textInput.val());
+				control.setting.set( textInput.val() );
+			});
+
+			this.container.on( 'click', '.ui-spinner-button', function() {
+				rangeInput.val(textInput.val());
+				control.setting.set( textInput.val() );
+			});
+
+			this.container.on( 'change keyup', 'input[type="range"]', function() {
+				textInput.val($( this ).val());
+				control.setting.set( $( this ).val() );
+			});
+		}
+	});
+
+	api.controlConstructor.ctf_google_font = api.Control.extend( {
+		ready: function() {
+			var control = this,
+				ffInput = control.container.find('.ctf-gf-ff-input'),
+				fwInput = control.container.find('.ctf-gf-fw-input');
+
+			$( ffInput ).selectize();
+			$( fwInput ).selectize();
+
+			// console.log();
+
+			ffInput.on( 'change', function() {
+				var fwInputVal = fwInput.val(),
+					fwArray = ctf_google_fonts[ffInput.val()],
+					fwNewOption = '';
+
+				// control.renderContent()
+
+				if ( ! _.isEmpty( fwArray ) ) {
+					_.each(fwArray, function ( value, key, list ) {
+						var selected = '';
+						if (fwInputVal == value) {
+							selected = 'selected';
+						};
+						fwNewOption += '<option value="'+value+'" '+selected+'>'+value+'</option>';
+					});
+
+					console.log(fwNewOption);
+
+					fwInput.html(fwNewOption);
+
+					var refreshData = $(fwInput).data('selectize');
+
+					refreshData.destroy();
+
+					setTimeout(function () {
+						$( fwInput ).selectize();
+					}, 100);
+				}
+			});
+
+
+			// console.log(this);
+			// this.container.on( 'change keyup paste', 'input', function() {
+			// 	control.setting.set( jQuery( this ).val() );
+			// });
 		}
 	});
 	

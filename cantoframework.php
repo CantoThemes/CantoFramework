@@ -13,6 +13,7 @@ class CTF_Init
 	function __construct()
 	{
 		require_once CTF_PATH .'core/fields/fields.class.php';
+		require_once CTF_PATH .'core/helper_class/ctfhelp.class.php';
 		require_once CTF_PATH .'core/helper_class/sanitize.php';
 
 		$this->include_customizer_class();

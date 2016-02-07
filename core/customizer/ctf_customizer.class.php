@@ -38,6 +38,7 @@ class CTF_Customizer
 		wp_enqueue_style( 'ctf-roboto-font', '//fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300italic,300,100italic,100' );
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_style( 'ctf-selectize', CTF_URL.'assets/vendor/selectize/css/selectize.css' );
+		wp_enqueue_style( 'ctf-font-awesome', CTF_URL.'assets/vendor/font-awesome/css/font-awesome.min.css' );
 		wp_enqueue_style( 'ctf-customizer', CTF_URL.'core/customizer/assets/css/customizer.css', array('customize-controls', 'ctf-selectize') );
 
 		$dependency = array(
@@ -54,6 +55,11 @@ class CTF_Customizer
 		wp_enqueue_script( 'wp-color-picker' );
 		wp_enqueue_script('ctf-selectize', CTF_URL.'assets/vendor/selectize/js/standalone/selectize.min.js', array('jquery'));
 		wp_enqueue_script('ctf-customizer', CTF_URL.'core/customizer/assets/js/customizer.js', $dependency);
+
+		$ctf_google_fonts_json = array(
+			'l10n_print_after' => 'ctf_google_fonts = ' . CTF_Help::get_google_font_json()
+		);
+		wp_localize_script('ctf-customizer', 'ctf_google_fonts', $ctf_google_fonts_json);
 	}
 
 	public function register_customizer_controls()
@@ -66,6 +72,7 @@ class CTF_Customizer
 			'email',
 			'number',
 			'dimension',
+			'range',
 			'password',
 			'url',
 			'select',
@@ -77,6 +84,7 @@ class CTF_Customizer
 			'checkbox_button',
 			'color',
 			'color_rgba',
+			'google_font'
 		);
 
 		foreach ($all_fields as $field) {
@@ -150,6 +158,8 @@ class CTF_Customizer
 			}
 		}
 	}
+
+
 
 	public function section_option( $manager, $section )
 	{
