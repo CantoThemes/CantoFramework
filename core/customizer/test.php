@@ -224,9 +224,9 @@ $options = array(
 								'font-family' => 1,
 								'font-weight' => 1,
 								'font-size' => 1,
-								'line-height' => 1,
-								'letter-spacing' => 1,
-								'word-spacing' => 1,
+								'line-height' => 0,
+								// 'letter-spacing' => 1,
+								// 'word-spacing' => 1,
 							)
 						),
 					),

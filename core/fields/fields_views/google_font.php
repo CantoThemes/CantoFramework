@@ -10,6 +10,7 @@
 				</select>
 			</div>
 			<# } #>
+			<# if( parseFloat(data.choices['font-weight']) || _.isUndefined(data.choices['font-weight']) ){ #>
 			<div class="ctf-if-gf-font-weight">
 				<# var fontWeights = ctf_google_fonts[data.value['font-family']]; #>
 				<label>Font Weight</label>
@@ -19,6 +20,8 @@
 					<# } #>
 				</select>
 			</div>
+			<# } #>
+			<# if( parseFloat(data.choices['font-size']) || _.isUndefined(data.choices['font-size']) ){ #>
 			<div class="ctf-if-gf-font-size ctf-input-field-dimension">
 				<#
 				var fzNumber = parseFloat( data.value['font-size'] );
@@ -41,6 +44,8 @@
 					</select>
 				</div>
 			</div>
+			<# } #>
+			<# if( parseFloat(data.choices['line-height']) || _.isUndefined(data.choices['line-height']) ){ #>
 			<div class="ctf-if-gf-line-height ctf-input-field-dimension">
 				<#
 				var lhNumber = parseFloat( data.value['line-height'] );
@@ -63,6 +68,8 @@
 					</select>
 				</div>
 			</div>
+			<# } #>
+			<# if( parseFloat(data.choices['letter-spacing']) ){ #>
 			<div class="ctf-if-gf-letter-spacing ctf-input-field-dimension">
 				<#
 				var lsNumber = parseFloat( data.value['letter-spacing'] );
@@ -85,6 +92,8 @@
 					</select>
 				</div>
 			</div>
+			<# } #>
+			<# if( parseFloat(data.choices['word-spacing']) ){ #>
 			<div class="ctf-if-gf-word-spacing ctf-input-field-dimension">
 				<#
 				var wsNumber = parseFloat( data.value['word-spacing'] );
@@ -107,4 +116,5 @@
 					</select>
 				</div>
 			</div>
+			<# } #>
         </div>
