@@ -672,3 +672,14 @@ input[type=number] {
 	padding-left: 8px;
 	padding-right: 30px;
 }
+
+/* Text Align Controll */
+.ctf-input-field-radio-button.ctf-input-field-text-align label{
+	width: 25%;
+    text-align: center;
+}
+.ctf-input-field-radio-button.ctf-input-field-text-align label input[type="radio"] + span{
+	width: 100%;
+    box-sizing: border-box;
+}
+

@@ -84,7 +84,9 @@ class CTF_Customizer
 			'checkbox_button',
 			'color',
 			'color_rgba',
-			'google_font'
+			'google_font',
+			'font_style',
+			'text_align'
 		);
 
 		foreach ($all_fields as $field) {

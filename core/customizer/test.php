@@ -281,6 +281,19 @@ $options = array(
 							)
 						),
 					),
+					
+					array(
+						'setting' => array(
+							'id' => 'test_option_text_align',
+							'default' => 'center',
+							'type' => 'theme_mod',
+						),
+						'control' => array(
+							'label'    => __( 'Text Align Control', 'mytheme' ),
+							'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+							'type'     => 'text_align',
+						),
+					),
 
 					array(
 						'setting' => array(

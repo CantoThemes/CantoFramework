@@ -116,6 +116,16 @@
 			});
 		}
 	});
+	
+	api.controlConstructor.ctf_text_align = api.Control.extend( {
+		ready: function() {
+			var control = this;
+			// console.log(this);
+			this.container.on( 'change', 'input', function() {
+				control.setting.set( jQuery( this ).val() );
+			});
+		}
+	});
 
 
 	api.controlConstructor.ctf_checkbox = api.Control.extend( {
