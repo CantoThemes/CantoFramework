@@ -297,6 +297,24 @@ $options = array(
 
 					array(
 						'setting' => array(
+							'id' => 'test_option_font_style',
+							'default' => array(
+								'bold' => 'on',
+								'italic' => 'off',
+								'underline' => 'off',
+								'strikethrough' => 'on',
+							),
+							'type' => 'theme_mod',
+						),
+						'control' => array(
+							'label'    => __( 'Font Style Control', 'mytheme' ),
+							'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+							'type'     => 'font_style',
+						),
+					),
+
+					array(
+						'setting' => array(
 							'id' => 'test_option_range',
 							'default' => '25',
 							'type' => 'theme_mod',

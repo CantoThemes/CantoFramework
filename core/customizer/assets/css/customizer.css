@@ -674,12 +674,8 @@ input[type=number] {
 }
 
 /* Text Align Controll */
-.ctf-input-field-radio-button.ctf-input-field-text-align label{
-	width: 25%;
-    text-align: center;
-}
+.ctf-input-field-checkbox-button.ctf-input-field-font-style label input[type="checkbox"] + span,
 .ctf-input-field-radio-button.ctf-input-field-text-align label input[type="radio"] + span{
-	width: 100%;
-    box-sizing: border-box;
+	font-size: 14px;
 }
 

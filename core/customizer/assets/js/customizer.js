@@ -616,6 +616,49 @@
 			// });
 		}
 	});
+
+
+	api.controlConstructor.ctf_font_style = api.Control.extend( {
+		ready: function() {
+			var control = this,
+				allVals = {};
+
+			this.container.on( 'change', 'input[type="checkbox"]', function() {
+				var inputBold = control.container.find( 'input.ctf-fstl-bold:checked' ),
+					inputItalic = control.container.find( 'input.ctf-fstl-italic:checked' ),
+					inputUnderline = control.container.find( 'input.ctf-fstl-underline:checked' ),
+					inputStrikethrough = control.container.find( 'input.ctf-fstl-strikethrough:checked' );
+
+				if (inputBold.size()) {
+					allVals['bold'] = 'on';
+				} else {
+					allVals['bold'] = 'off';
+				}
+
+				if (inputItalic.size()) {
+					allVals['italic'] = 'on';
+				} else {
+					allVals['italic'] = 'off';
+				}
+
+				if (inputUnderline.size()) {
+					allVals['underline'] = 'on';
+				} else {
+					allVals['underline'] = 'off';
+				}
+
+				if (inputStrikethrough.size()) {
+					allVals['strikethrough'] = 'on';
+				} else {
+					allVals['strikethrough'] = 'off';
+				}
+				
+				control.setting.set( allVals );
+
+				api.previewer.refresh();
+			});
+		}
+	});
 	
 
 /*	api.controlConstructor.text = api.Control.extend( {
