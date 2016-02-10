@@ -502,6 +502,7 @@ input[type=number] {
 
 .wp-picker-container a.wp-picker-open ~ div.ctf-alpha-container {
     display:block;
+    width: 255px;
 }
 
 .ctf-alpha-container {
@@ -510,7 +511,7 @@ input[type=number] {
     border:1px solid #dfdfdf;
     border-top:none;
     background:#FFF;
-    padding:0 11px 6px;
+    padding: 6px 11px;
 }
 
 /* dimension */
@@ -746,4 +747,57 @@ input[type=number] {
   color: #fff;
   background-color: #06B3E6;
   border-color: #06B3E6;
+}
+
+/* Color Field Design */
+.wp-color-result{
+	height: 36px;
+	border: 1px solid #E8E8E8 !important;
+	border-radius: 0;
+	box-shadow: none;
+	padding-left: 38px;
+	
+}
+
+.wp-color-result::before{
+	content: '';
+	display: block;
+	width: 38px;
+	height: 36px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image:url(../images/transparency-grid2.jpg);
+	z-index: -1;
+}
+.wp-color-result::after{
+	border-radius: 0;
+	border-left: 0 solid #CCC !important;
+	padding: 7px 10px;
+	background-color: rgba(0,0,0,0.2);
+	color: #fff !important;
+}
+
+.wp-core-ui .wp-picker-input-wrap .button.button-small{
+	height: 38px;
+	line-height: 38px;
+	border-width: 0;
+	border-radius: 0;
+	padding: 0px 23px 1px;
+	border-bottom: 2px solid #E8E8E8;
+	box-shadow: none;
+	background-color: #fff;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.wp-core-ui .wp-picker-input-wrap .button.button-small:hover{
+	background-color: #06B3E6;
+	border-color: #009ecd;
+	color: #fff;
+}
+
+.wp-picker-container input.wp-color-picker[type="text"]{
+	width: 85px;
 }
