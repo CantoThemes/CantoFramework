@@ -660,6 +660,65 @@
 		}
 	});
 	
+	api.controlConstructor.ctf_icon = api.Control.extend( {
+		ready: function() {
+			var control = this,
+				iconPicker = control.container.find('.ct-iconpicker'),
+				iconHolerIcon = control.container.find( '.ct-iconpicker .ct-ip-holder .ct-ip-icon' ),
+				iconPickerPopup = control.container.find( '.ct-iconpicker .ct-ip-popup' ),
+				inputField = control.container.find('.ct-icon-value'),
+				iconHolderI = control.container.find('.ct-ip-icon i'),
+				iconPickerPopupUl = control.container.find('.ct-iconpicker .ct-ip-popup ul'),
+				inputSearch = iconPickerPopup.find('input.ct-ip-search-input');
+
+
+			iconHolerIcon.on('click', function(){
+			    iconPickerPopup.slideToggle();
+			    
+			    inputSearch.val('');
+				inputSearch.trigger('change');
+			});
+			
+			iconPickerPopup.on('change keyup paste', 'input.ct-ip-search-input', function (e) {
+				var searchVal = $(this).val();
+				
+				if( _.isEmpty(searchVal) ){
+					iconPickerPopupUl.find('li').removeClass('ctf-hidden');
+				} else {
+					iconPickerPopupUl.find('li').addClass('ctf-hidden');
+				
+					var found = iconPickerPopupUl.find('li a[data-tooltip*="'+searchVal.toLowerCase()+'"]');
+					found.parent('li').removeClass('ctf-hidden');
+				}
+			});
+			
+			iconPickerPopup.on('click', 'a', function (e) {
+				e.preventDefault();
+				
+				var iconClass = $(this).data('icon');
+				
+				iconHolderI.attr('class', '');
+				iconHolderI.addClass(iconClass);
+				inputField.val(iconClass);
+				
+				iconPickerPopup.find('.ctf-selected').removeClass('ctf-selected');
+				
+				$(this).addClass('ctf-selected');
+				
+				control.setting.set( iconClass );
+			});
+			
+			$(document).mouseup(function (e){
+				if ( ( ! iconPicker.is(e.target) && iconPicker.has(e.target).length === 0 ) ){
+					iconPickerPopup.slideUp();
+					
+					inputSearch.val('');
+					inputSearch.trigger('change');
+				}
+			});
+		}
+	});
+	
 
 /*	api.controlConstructor.text = api.Control.extend( {
 		ready: function() {

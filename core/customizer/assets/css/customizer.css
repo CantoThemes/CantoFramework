@@ -38,7 +38,7 @@
 
 /* Custom CSS */
 .ctf-hidden{
-	display: none;
+	display: none  !important;
 }
 .ctf-btn{
 	font-family: 'Roboto', sans-serif;
@@ -679,3 +679,71 @@ input[type=number] {
 	font-size: 14px;
 }
 
+/* Iconpicker */
+
+.ct-ip-search-input {
+  font-style: italic;
+  margin-bottom: 10px !important;
+}
+.ct-iconpicker {
+  display: block;
+}
+.ct-iconpicker .ct-ip-holder .ct-ip-icon {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #eee;
+  position: relative;
+  cursor: pointer;
+  background-color: #fff;
+}
+.ct-iconpicker .ct-ip-holder .ct-ip-icon::after {
+  content: '\f107';
+  font-family: 'FontAwesome';
+  position: absolute;
+  top: -1px;
+  right: -20px;
+  width: 20px;
+  height: 40px;
+  border: 1px solid #eee;
+  background-color: #fff;
+}
+.ct-iconpicker .ct-ip-popup {
+	width: 100%;
+  max-width: 327px;
+  max-height: 340px;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding: 4px;
+  border: 1px solid #eee;
+  display: none;
+  background-color: #fff;
+}
+.ct-iconpicker .ct-ip-popup ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.ct-iconpicker .ct-ip-popup ul li {
+  display: inline-block;
+  float: left;
+  width: 50px;
+  height: 50px;
+  padding: 4px;
+  margin: 0  !important;
+}
+.ct-iconpicker .ct-ip-popup ul li a {
+  display: block;
+  color: #000;
+  line-height: 42px;
+  text-align: center;
+  border: 1px solid #eee;
+  transition: all 0.5s;
+}
+.ct-iconpicker .ct-ip-popup ul li a.ctf-selected,
+.ct-iconpicker .ct-ip-popup ul li a:hover {
+  color: #fff;
+  background-color: #06B3E6;
+  border-color: #06B3E6;
+}

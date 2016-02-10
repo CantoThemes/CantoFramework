@@ -57,9 +57,14 @@ class CTF_Customizer
 		wp_enqueue_script('ctf-customizer', CTF_URL.'core/customizer/assets/js/customizer.js', $dependency);
 
 		$ctf_google_fonts_json = array(
-			'l10n_print_after' => 'ctf_google_fonts = ' . CTF_Help::get_google_font_json()
+			'l10n_print_after' => 'ctf_google_fonts = ' . CTF_Help::get_google_font_json(),
 		);
 		wp_localize_script('ctf-customizer', 'ctf_google_fonts', $ctf_google_fonts_json);
+		
+		$ctf_fa_icons_json = array(
+			'l10n_print_after' => 'ctf_fa_icons = ' . CTF_Help::get_icons_json(),
+		);
+		wp_localize_script('ctf-customizer', 'ctf_fa_icons', $ctf_fa_icons_json);
 	}
 
 	public function register_customizer_controls()
@@ -86,7 +91,8 @@ class CTF_Customizer
 			'color_rgba',
 			'google_font',
 			'font_style',
-			'text_align'
+			'text_align',
+			'icon'
 		);
 
 		foreach ($all_fields as $field) {

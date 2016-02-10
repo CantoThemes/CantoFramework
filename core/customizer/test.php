@@ -284,6 +284,19 @@ $options = array(
 					
 					array(
 						'setting' => array(
+							'id' => 'test_option_icon',
+							'default' => 'fa fa-cogs',
+							'type' => 'theme_mod',
+						),
+						'control' => array(
+							'label'    => __( 'Icon Control', 'mytheme' ),
+							'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+							'type'     => 'icon',
+						),
+					),
+					
+					array(
+						'setting' => array(
 							'id' => 'test_option_text_align',
 							'default' => 'center',
 							'type' => 'theme_mod',
