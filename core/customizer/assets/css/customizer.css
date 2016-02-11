@@ -476,33 +476,76 @@ input[type=number] {
 
 .ctf-alpha-container .ui-slider-handle {
     color:#777;
-    background-color:#FFF;
+    background-color: transparent;
     text-shadow:0 1px 0 #FFF;
     text-decoration:none;
     position:absolute;
     z-index:2;
     box-shadow:0 1px 2px rgba(0,0,0,0.2);
-    border:1px solid #aaa;
+    border-width: 4px 3px;
+    border-style: solid;
+	border-color: #AAA;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
     opacity:0.9;
-    margin-top:-2px;
+    margin-top:-5px;
     height:20px;
     cursor:ew-resize;
     font-size:12px;
-    padding:3px;
+    padding: 3px;
 }
-
+.ctf-alpha-container .ui-slider-handle::before{
+	content: " ";
+	position: absolute;
+	left: -2px;
+	right: -2px;
+	top: -2px;
+	bottom: -2px;
+	border: 2px solid #FFF;
+	border-radius: 3px;
+}
+.ctf-alpha-container .ui-slider-handle .ctf-rgba-val-pop{
+	position: absolute;
+	bottom: -28px;
+	left: 0;
+	width: 50px;
+	height: 20px;
+	line-height: 20px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(0, 0, 0);
+	border-radius: 25px;
+	margin-left: -22px;
+	font-weight: 300;
+	font-size: 11px;
+}
+.ctf-alpha-container .ui-slider-handle .ctf-rgba-val-pop::after{
+	content: '';
+	width: 0;
+	height: 0;
+	display: block;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent #000;
+	position: absolute;
+	top: -10px;
+	left: 20px;
+}
+.ctf-input-field-color-rgba .wp-picker-container .iris-picker{
+	border-bottom-width: 0;
+}
+.ctf-alpha-container .ctf-alpha-container-inner{
+	position: relative;
+}
 .ctf-alpha-container .ui-slider {
-    position:relative;
-    text-align:center;
-    width:88%;
+	position: absolute;
+	text-align: center;
+	left: -3px;
+	right: 11px;
 }
 
 .wp-picker-container a.wp-picker-open ~ div.ctf-alpha-container {
     display:block;
-    width: 255px;
 }
 
 .ctf-alpha-container {
@@ -800,4 +843,51 @@ input[type=number] {
 
 .wp-picker-container input.wp-color-picker[type="text"]{
 	width: 85px;
+}
+
+/* Form Kirki */
+.ctf-input-field .wp-picker-container {
+  width: 100%;
+}
+
+.ctf-input-field .wp-picker-container .wp-picker-holder {
+  width: calc(100% - 2px);
+}
+
+.ctf-input-field .wp-picker-container .iris-picker {
+  width: 100% !important;
+  height: 195px !important;
+  padding-bottom: 10px !important;
+}
+
+.ctf-input-field .wp-picker-container .iris-picker .iris-picker-inner {
+  left: 35px;
+  height: 190px;
+}
+
+.ctf-input-field .wp-picker-container .iris-picker .iris-picker-inner .iris-square {
+  width: calc(100% - 35px) !important;
+  margin-right: 2%;
+}
+
+.ctf-input-field .wp-picker-container .iris-picker .iris-picker-inner .iris-slider.iris-strip {
+  height: 185px !important;
+  width: 28px !important;
+}
+
+.ctf-input-field .iris-palette-container {
+  width: 20px;
+  left: 8px;
+  top: 10px;
+  text-align: center;
+}
+
+.ctf-input-field .iris-palette-container a {
+	display: inline-block;
+	margin-left: 0 !important;
+	margin-bottom: 3px;
+	border: 1px solid rgba(0, 0, 0, 0.06);
+	border-radius: 0;
+	width: 18px !important;
+	height: 18px !important;
 }

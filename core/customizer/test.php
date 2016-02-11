@@ -42,7 +42,7 @@ $options = array(
 					array(
 						'setting' => array(
 							'id' => 'test_option_rgba_color',
-							// 'default' => 'rgba(0,0,0,0.5)',
+							'default' => 'rgba(25,100,10,0.5)',
 							'type' => 'theme_mod',
 						),
 						'control' => array(

@@ -292,7 +292,7 @@
 				});
 
 
-				$('<div class="ctf-alpha-container"><div class="slider-alpha"></div><div class="transparency"></div></div>').appendTo(colorInput.parents('.wp-picker-container'));
+				$('<div class="ctf-alpha-container"><div class="ctf-alpha-container-inner"><div class="slider-alpha"></div><div class="transparency"></div></div></div>').appendTo(colorInput.parents('.wp-picker-container'));
 
 				var alphaSlider = colorInput.parents('.wp-picker-container:first').find('.slider-alpha');
 
@@ -305,14 +305,18 @@
 				}
 				alphaSlider.slider({
 					slide: function(event, ui) {
-						$(this).find('.ui-slider-handle').text(ui.value); // show value on slider handle
+						$(this).find('.ui-slider-handle').html('<span class="ctf-rgba-val-pop">'+(ui.value / 100)+'</span>'); // show value on slider handle
 						// send ajax request to wp.customizer to enable Save & Publish button
 						var _new_value = colorInput.val();
 						control.setting.set( _new_value );
 					},
 					create: function(event, ui) {
-						var v = $(this).slider('value');
-						$(this).find('.ui-slider-handle').text(v);
+						var v = $(this).slider('value'),
+							bgColor = colorInput.parents('.wp-picker-container:first').find('.transparency'),
+							iris = colorInput.data('a8cIris');
+						bgColor.css('backgroundColor', iris._color.toString('no-alpha'));
+
+						$(this).find('.ui-slider-handle').html('<span class="ctf-rgba-val-pop">'+(v / 100)+'</span>');
 					},
 					value: alpha_val,
 					range: "max",
