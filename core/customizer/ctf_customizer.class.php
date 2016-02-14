@@ -173,5 +173,38 @@ class CTF_Customizer
 
 	public function section_option( $manager, $section )
 	{
+		if ( is_array($section) ) {
+
+			$section_id = $section['id'];
+			$section_args = $section;
+
+			unset($section_args['id']);
+			unset($section_args['options']);
+
+			$manager->add_section( $section_id, $section_args );
+			
+			if( isset($section['options']) && is_array($section['options']) && count($section['options']) ){
+				foreach ($section['options'] as $field) {
+					if (isset($field['setting']) && isset($field['control'])) {
+
+						$setting_id = (isset($this->args['opt_name']) && !empty($this->args['opt_name'])) ? $this->args['opt_name'].'['.$field['setting']['id'].']' : $field['setting']['id'];
+						$setting_args = $field['setting'];
+
+						unset($setting_args['is']);
+
+						$manager->add_setting( $setting_id, $setting_args );
+
+						$control_id = $field['setting']['id'];
+						$control_args = $field['control'];
+						$control_args['section'] = $section_id;
+						$control_args['settings'] = $setting_id;
+
+						$manager->add_control( new CTF_Customize_Control( $manager, $control_id, $control_args ) );
+
+
+					}
+				}
+			}
+		}
 	}
 }

@@ -361,6 +361,27 @@ $options = array(
 				),
 			)
 		)
+	),
+	array(
+		'id'			 => 'test_section2',
+		'priority'       => 10,
+		'title'          => 'Test Section 2',
+		'description'    => 'Teat Section 2 Description',
+		'active_callback' => '',
+		'options' => array(
+			array(
+				'setting' => array(
+					'id' => 'test_option2',
+					'default' => 'Text 2 Feild',
+					'type' => 'theme_mod',
+				),
+				'control' => array(
+					'label'    => __( 'Text 2 Control', 'mytheme' ),
+					'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+					'type'     => 'text'
+				),
+			),
+		)
 	)
 );
 
