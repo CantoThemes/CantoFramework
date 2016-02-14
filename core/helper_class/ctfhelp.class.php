@@ -21,7 +21,7 @@ class CTF_Help
 	}
 	
 	public static function get_icons_array(){
-		return array(
+		$icon_font =  array(
 			"fa fa-glass" => "Glass",
 			"fa fa-music" => "Music",
 			"fa fa-search" => "Search",
@@ -628,6 +628,9 @@ class CTF_Help
 			"fa fa-bluetooth-b" => "Bluetooth",
 			"fa fa-percent" => "Percent",
 
+			$icon_font = apply_filters( 'ctf_icon_class_array', $icon_font );
+
+			return $icon_font;
 		);
 	}
 }

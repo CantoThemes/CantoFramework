@@ -598,7 +598,7 @@ input[type=number] {
   height: 18px;
   width: 18px;
   border-radius: 18px;
-  background: #00a0d2;
+  background: #06B3E6;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -6.5px;
@@ -632,7 +632,7 @@ input[type=number] {
   height: 18px;
   width: 18px;
   border-radius: 18px;
-  background: #00a0d2;
+  background: #06B3E6;
   cursor: pointer;
 }
 .ctf-input-field-range input[type=range]::-ms-track {
@@ -661,7 +661,7 @@ input[type=number] {
   height: 18px;
   width: 18px;
   border-radius: 1px;
-  background: #00a0d2;
+  background: #06B3E6;
   cursor: pointer;
   height: 5px;
 }
@@ -890,4 +890,76 @@ input[type=number] {
 	border-radius: 0;
 	width: 18px !important;
 	height: 18px !important;
+}
+
+/* Media */
+.button.image-upload-button,
+.button.image-change-button{
+	font-family: 'Roboto', sans-serif;
+	width: 100%;
+	height: 40px;
+	background-color: #fff;
+	border-width: 0;
+	border-radius: 0;
+	box-shadow: none;
+	border-color: #E8E8E8;
+	border-bottom-width: 2px;
+	font-weight: 500;
+	font-size: 14px;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.button.image-upload-button:hover,
+.button.image-change-button:hover{
+	background-color: #06B3E6;
+	border-color: #009ecd;
+	color: #fff;
+}
+
+.button.image-remove-button{
+	font-family: 'Roboto', sans-serif;
+	width: 100%;
+	height: 40px;
+	background-color: #fff;
+	color: #ed2929;
+	border-width: 0;
+	border-radius: 0;
+	box-shadow: none;
+	border-color: #E8E8E8;
+	border-bottom-width: 2px;
+	font-weight: 500;
+	font-size: 14px;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.button.image-remove-button:hover{
+	background-color: #ed2929;
+	border-color: #c21212;
+	color: #fff;
+}
+
+.ctf-ifi-view-image{
+	width: 50%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	float: left;
+	padding-right: 5px;
+}
+
+.ctf-ifi-btn-set{
+	width: 50%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	float: left;
+	padding-left: 5px;
+}
+
+.button.image-change-button{
+	margin-bottom: 10px;
 }
