@@ -4,7 +4,7 @@
  * Plugin Name: CantoFramework
  * Plugin URI: https://www.cantothemes.com
  * Description: A framework for wordpress theme and plugins
- * Version: 1.0-Alpha
+ * Version: 1.0-alpha
  * Author: CantoThemes
  * Author URI: https://www.cantothemes.com
  */
