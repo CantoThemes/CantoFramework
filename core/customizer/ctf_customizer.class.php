@@ -53,6 +53,7 @@ class CTF_Customizer
 			'wp-color-picker'
 		);
 		wp_enqueue_script( 'wp-color-picker' );
+		wp_enqueue_media();
 		wp_enqueue_script('ctf-selectize', CTF_URL.'assets/vendor/selectize/js/standalone/selectize.min.js', array('jquery'));
 		wp_enqueue_script('ctf-customizer', CTF_URL.'core/customizer/assets/js/customizer.js', $dependency);
 
@@ -92,7 +93,8 @@ class CTF_Customizer
 			'google_font',
 			'font_style',
 			'text_align',
-			'icon'
+			'icon',
+			'image'
 		);
 
 		foreach ($all_fields as $field) {

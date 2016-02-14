@@ -723,6 +723,84 @@
 		}
 	});
 	
+	api.controlConstructor.ctf_image = api.Control.extend( {
+		ready: function() {
+			var control = this,
+				addBtn = control.container.find('.image-upload-button'),
+				removeBtn = control.container.find('.image-remove-button'),
+				changeBtn = control.container.find('.image-change-button'),
+				ImageView = control.container.find('.ctf-ifi-view-image'),
+				inputData = control.container.find('.ctf-ii-data-field'),
+				frame,
+				allVals = {};
+				
+			// Create a new media frame
+			frame = wp.media({
+				title: 'Select or Upload Media Of Your Chosen Persuasion',
+				button: {
+					text: 'Use this Image'
+				},
+				library: {
+					type: 'image'
+				},
+				multiple: false  // Set to true to allow multiple files to be selected
+			});
+			
+			// When an image is selected in the media frame...
+		    frame.on( 'select', function() {
+		      
+				// Get media attachment details from the frame state
+				var attachment = frame.state().get('selection').first().toJSON();
+				
+				ImageView.find('img').remove();
+				ImageView.append('<img class="ctf-ifi-vimg" src="'+attachment.sizes.thumbnail.url+'" alt="'+attachment.alt+'" />');
+				
+				allVals = {};
+				
+				allVals['url'] = attachment.url;
+				allVals['id'] = attachment.id;
+				allVals['title'] = attachment.title;
+				allVals['alt'] = attachment.alt;
+				allVals['width'] = attachment.width;
+				allVals['height'] = attachment.height;
+				
+				addBtn.addClass('ctf-hidden');
+				
+				removeBtn.removeClass('ctf-hidden');
+				changeBtn.removeClass('ctf-hidden');
+				
+				inputData.val(JSON.stringify(allVals));
+				
+				
+				control.setting.set( allVals );
+		      
+		    });
+			
+			addBtn.on( 'click', function() {
+
+				frame.open();
+			});
+			
+			changeBtn.on( 'click', function() {
+
+				frame.open();
+			});
+			
+			removeBtn.on( 'click', function() {
+				ImageView.find('img').remove();
+				
+				allVals = {};
+				
+				addBtn.removeClass('ctf-hidden');
+			      
+			    removeBtn.addClass('ctf-hidden');
+			    changeBtn.addClass('ctf-hidden');
+				
+				control.setting.set( allVals );
+			});
+		}
+	});
+	
 
 /*	api.controlConstructor.text = api.Control.extend( {
 		ready: function() {

@@ -343,6 +343,20 @@ $options = array(
 							)
 						),
 					),
+					array(
+						'setting' => array(
+							'id' => 'test_option_image',
+							'default' => array(
+								//'url' => get_home_url().'/wp-admin//images/align-right-2x.png'
+							),
+							'type' => 'theme_mod',
+						),
+						'control' => array(
+							'label'    => __( 'Image Control', 'mytheme' ),
+							'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+							'type'     => 'image',
+						),
+					),
 					
 				),
 			)

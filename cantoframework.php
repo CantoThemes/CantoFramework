@@ -2,6 +2,11 @@
 
 /**
  * Plugin Name: CantoFramework
+ * Plugin URI: https://www.cantothemes.com
+ * Description: A framework for wordpress theme and plugins
+ * Version: 1.0-Alpha
+ * Author: CantoThemes
+ * Author URI: https://www.cantothemes.com
  */
 
 define('CTF_PATH', plugin_dir_path( __FILE__ ));
