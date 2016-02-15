@@ -30,6 +30,8 @@ class CTF_Customizer
 		add_action( 'customize_controls_print_footer_scripts', array( $this, 'register_customizer_controls' ), 10 );
 
 		add_action( 'customize_register', array($this, 'add_options') );
+		
+		add_filter( 'ctf_before_pass_args', array($this, 'add_editor_controll_css') );
 	}
 
 
@@ -37,6 +39,7 @@ class CTF_Customizer
 	{
 		wp_enqueue_style( 'ctf-roboto-font', '//fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300italic,300,100italic,100' );
 		wp_enqueue_style( 'wp-color-picker' );
+		wp_enqueue_style( 'editor-buttons' );
 		wp_enqueue_style( 'ctf-selectize', CTF_URL.'assets/vendor/selectize/css/selectize.css' );
 		wp_enqueue_style( 'ctf-font-awesome', CTF_URL.'assets/vendor/font-awesome/css/font-awesome.min.css' );
 		wp_enqueue_style( 'ctf-customizer', CTF_URL.'core/customizer/assets/css/customizer.css', array('customize-controls', 'ctf-selectize') );
@@ -68,6 +71,15 @@ class CTF_Customizer
 			'l10n_print_after' => 'ctf_fa_icons = ' . CTF_Help::get_icons_json(),
 		);
 		wp_localize_script('ctf-customizer', 'ctf_fa_icons', $ctf_fa_icons_json);
+	}
+	
+	public function add_editor_controll_css( $args )
+	{
+		if($args['type'] == 'editor'){
+			$args['choices']['content_css'] = includes_url( 'js/tinymce' ).'/skins/wordpress/wp-content.css';
+		}
+		
+		return $args;
 	}
 
 	public function register_customizer_controls()

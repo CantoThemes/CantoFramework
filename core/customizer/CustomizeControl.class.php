@@ -17,6 +17,8 @@ class CTF_Customize_Control extends WP_Customize_Control
 
 	function __construct( $manager, $id, $args = array() )
 	{
+		$args = apply_filters('ctf_before_pass_args', $args);
+		
 		parent::__construct( $manager, $id, $args );
 
 		$this->type = (isset($args['type']) && !empty($args['type'])) ? 'ctf_'.$args['type'] : 'ctf_text';

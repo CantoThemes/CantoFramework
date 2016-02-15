@@ -818,10 +818,21 @@
 				selector: '#'+textareaSelector.attr('id'),
 				resize: 'vertical',
 				menubar: false,
-				toolbar1: 'bold,italic,underline,blockquote,strikethrough,bullist,numlist,alignleft,aligncenter,alignright,undo,redo,link,unlink,fullscreen'
+				toolbar1: 'bold,italic,underline,blockquote,strikethrough,bullist,numlist,alignleft,aligncenter,alignright,undo,redo,link,unlink,fullscreen',
+				theme: 'modern',
+				skin: 'lightgray',
+				relative_urls: false,
+				remove_script_host: false,
+				convert_urls: false,
+				browser_spellcheck: true,
+				fix_list_elements: true,
+				entities: '38,amp,60,lt,62,gt',
+				entity_encoding: 'raw',
+				keep_styles: false,
+				content_css: control.params.choices.content_css
 			} );
 			
-			console.log(wrap);
+			// console.log(wrap);
 			
 			
 			
