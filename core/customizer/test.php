@@ -398,6 +398,23 @@ $options = array(
 					)
 				),
 			),
+			array(
+				'setting' => array(
+					'id' => 'test_option_editor2',
+					'default' => 'Editor 2',
+					'type' => 'theme_mod',
+				),
+				'control' => array(
+					'label'    => __( 'Editor 2', 'mytheme' ),
+					'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+					'type'     => 'editor',
+					'choices' => array(
+						'min' => 0,
+						'max' => 50,
+						'step' => 0.5
+					)
+				),
+			),
 		)
 	)
 );

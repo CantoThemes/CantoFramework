@@ -31,7 +31,7 @@ class CTF_Customizer
 
 		add_action( 'customize_register', array($this, 'add_options') );
 		
-		add_filter( 'ctf_before_pass_args', array($this, 'add_editor_controll_css') );
+		add_filter( 'ctf_before_pass_args', array($this, 'add_editor_controll_options') );
 	}
 
 
@@ -55,6 +55,8 @@ class CTF_Customizer
 			'ctf-selectize',
 			'wp-color-picker'
 		);
+		wp_enqueue_script( 'editor' );
+		wp_enqueue_script( 'quicktags' );
 		wp_enqueue_script( 'wp-color-picker' );
 		wp_enqueue_media();
 		wp_enqueue_script('ctf-selectize', CTF_URL.'assets/vendor/selectize/js/standalone/selectize.min.js', array('jquery'));
@@ -73,10 +75,11 @@ class CTF_Customizer
 		wp_localize_script('ctf-customizer', 'ctf_fa_icons', $ctf_fa_icons_json);
 	}
 	
-	public function add_editor_controll_css( $args )
+	public function add_editor_controll_options( $args )
 	{
 		if($args['type'] == 'editor'){
-			$args['choices']['content_css'] = includes_url( 'js/tinymce' ).'/skins/wordpress/wp-content.css';
+			$args['choices']['content_css'] = includes_url( "css/dashicons.min.css" ).','.includes_url( 'js/tinymce' ).'/skins/wordpress/wp-content.css';
+			$args['choices']['plugins'] = 'colorpicker,lists,fullscreen,image,wordpress,wpeditimage,wplink';
 		}
 		
 		return $args;

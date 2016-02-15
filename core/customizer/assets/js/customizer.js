@@ -809,28 +809,42 @@
 				control = this,
 				editorSelect = control.container.find('.wp-editor-wrap'),
 				textareaSelector = control.container.find('.wp-editor-area');
+
+			if ( typeof tinymce !== 'undefined' ) {
+				wrap = tinymce.$( '#'+editorSelect.attr('id') );
 				
-			wrap = tinymce.$( '#'+editorSelect.attr('id') );
+				tinymce.init( {
+					selector: '#'+textareaSelector.attr('id'),
+					resize: 'vertical',
+					menubar: false,
+					toolbar1: 'bold,italic,underline,blockquote,strikethrough,bullist,numlist,alignleft,aligncenter,alignright,undo,redo,link,unlink,fullscreen',
+					theme: 'modern',
+					skin: 'lightgray',
+					relative_urls: false,
+					remove_script_host: false,
+					convert_urls: false,
+					browser_spellcheck: true,
+					fix_list_elements: true,
+					entities: '38,amp,60,lt,62,gt',
+					entity_encoding: 'raw',
+					keep_styles: false,
+					content_css: control.params.choices.content_css,
+					plugins: control.params.choices.plugins,
+				} );
+
+			}
+				
 			
-			console.log(control.params.choices);
-			
-			tinymce.init( {
-				selector: '#'+textareaSelector.attr('id'),
-				resize: 'vertical',
-				menubar: false,
-				toolbar1: 'bold,italic,underline,blockquote,strikethrough,bullist,numlist,alignleft,aligncenter,alignright,undo,redo,link,unlink,fullscreen',
-				theme: 'modern',
-				skin: 'lightgray',
-				relative_urls: false,
-				remove_script_host: false,
-				convert_urls: false,
-				browser_spellcheck: true,
-				fix_list_elements: true,
-				entities: '38,amp,60,lt,62,gt',
-				entity_encoding: 'raw',
-				keep_styles: false,
-				content_css: control.params.choices.content_css
-			} );
+			if ( typeof quicktags !== 'undefined' ) {
+				quicktags({
+					id: textareaSelector.attr('id'),
+					buttons: 'strong,em,link,block,del,ins,img,ul,ol,li,code,more,close'
+				})
+			}
+
+			textareaSelector.on('change keyup paste', function () {
+				console.log($(this).val());
+			});
 			
 			// console.log(wrap);
 			
