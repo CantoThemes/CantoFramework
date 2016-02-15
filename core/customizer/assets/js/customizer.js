@@ -842,9 +842,9 @@
 				})
 			}
 
-			textareaSelector.on('change keyup paste', function () {
-				console.log($(this).val());
-			});
+			// textareaSelector.on('change keyup paste', function () {
+			// 	console.log($(this).val());
+			// });
 			
 			// console.log(wrap);
 			
