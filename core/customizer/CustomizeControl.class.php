@@ -12,6 +12,8 @@ class CTF_Customize_Control extends WP_Customize_Control
 	public $description = '';
 
 	public $choices = '';
+	
+	public $id = '';
 
 	function __construct( $manager, $id, $args = array() )
 	{
@@ -23,6 +25,8 @@ class CTF_Customize_Control extends WP_Customize_Control
 		$this->subtitle = (isset($args['subtitle']) && !empty($args['subtitle'])) ? $args['subtitle'] : '';
 		
 		$this->choices = (isset($args['choices']) && !empty($args['choices'])) ? $args['choices'] : '';
+		
+		$this->id = $id;
 	}
 
 	public function to_json() {

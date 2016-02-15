@@ -381,6 +381,23 @@ $options = array(
 					'type'     => 'text'
 				),
 			),
+			array(
+				'setting' => array(
+					'id' => 'test_option_editor',
+					'default' => 'Editor',
+					'type' => 'theme_mod',
+				),
+				'control' => array(
+					'label'    => __( 'Editor', 'mytheme' ),
+					'subtitle'    => __( 'Lorem ipsum dolor sit amet', 'mytheme' ),
+					'type'     => 'editor',
+					'choices' => array(
+						'min' => 0,
+						'max' => 50,
+						'step' => 0.5
+					)
+				),
+			),
 		)
 	)
 );

@@ -801,6 +801,32 @@
 		}
 	});
 	
+	api.controlConstructor.ctf_editor = api.Control.extend( {
+		ready: function() {
+			var init,
+				id,
+				wrap,
+				control = this,
+				editorSelect = control.container.find('.wp-editor-wrap'),
+				textareaSelector = control.container.find('.wp-editor-area');
+				
+			wrap = tinymce.$( '#'+editorSelect.attr('id') );
+			
+			console.log(control.params.choices);
+			
+			tinymce.init( {
+				selector: '#'+textareaSelector.attr('id'),
+				resize: 'vertical',
+				menubar: false,
+				toolbar1: 'bold,italic,underline,blockquote,strikethrough,bullist,numlist,alignleft,aligncenter,alignright,undo,redo,link,unlink,fullscreen'
+			} );
+			
+			console.log(wrap);
+			
+			
+			
+		}
+	});
 
 /*	api.controlConstructor.text = api.Control.extend( {
 		ready: function() {
