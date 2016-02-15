@@ -830,6 +830,11 @@
 					keep_styles: false,
 					content_css: control.params.choices.content_css,
 					plugins: control.params.choices.plugins,
+					setup: function(editor) {
+						editor.on('change keyup paste', function(e) {
+							control.setting.set( editor.getContent() );
+						});
+					}
 				} );
 
 			}
