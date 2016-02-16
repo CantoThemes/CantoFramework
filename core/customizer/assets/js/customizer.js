@@ -817,6 +817,7 @@
 					selector: '#'+textareaSelector.attr('id'),
 					resize: 'vertical',
 					menubar: false,
+					wpautop: false,
 					toolbar1: 'bold,italic,underline,blockquote,strikethrough,bullist,numlist,alignleft,aligncenter,alignright,undo,redo,link,unlink,fullscreen',
 					theme: 'modern',
 					skin: 'lightgray',
@@ -831,7 +832,7 @@
 					content_css: control.params.choices.content_css,
 					plugins: control.params.choices.plugins,
 					setup: function(editor) {
-						editor.on('change keyup paste', function(e) {
+						editor.on('change keyup paste SetContent', function(e) {
 							control.setting.set( editor.getContent() );
 						});
 					}
@@ -847,11 +848,18 @@
 				})
 			}
 
-			// textareaSelector.on('change keyup paste', function () {
-			// 	console.log($(this).val());
-			// });
 			
-			// console.log(wrap);
+			$('#'+editorSelect.attr('id')).on('click', function () {
+				if($(this).hasClass('html-active')){
+					var editor = tinymce.get(wpActiveEditor);
+					editor.setContent(textareaSelector.val());
+				}
+			});
+			
+			this.container.on( 'change keyup paste', 'textarea', function() {
+				var editor = tinymce.get(wpActiveEditor);
+				editor.setContent(textareaSelector.val());
+			});
 			
 			
 			
