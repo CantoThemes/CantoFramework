@@ -817,7 +817,7 @@
 					selector: '#'+textareaSelector.attr('id'),
 					resize: 'vertical',
 					menubar: false,
-					wpautop: false,
+					wpautop: true,
 					toolbar1: 'bold,italic,underline,blockquote,strikethrough,bullist,numlist,alignleft,aligncenter,alignright,undo,redo,link,unlink,fullscreen',
 					theme: 'modern',
 					skin: 'lightgray',
@@ -851,14 +851,16 @@
 			
 			$('#'+editorSelect.attr('id')).on('click', function () {
 				if($(this).hasClass('html-active')){
-					var editor = tinymce.get(wpActiveEditor);
-					editor.setContent(textareaSelector.val());
+					var editor = tinymce.get(wpActiveEditor),
+						newContent = textareaSelector.val();
+					editor.setContent( newContent ? switchEditors.wpautop( newContent ) : '' );
 				}
 			});
 			
 			this.container.on( 'change keyup paste', 'textarea', function() {
-				var editor = tinymce.get(wpActiveEditor);
-				editor.setContent(textareaSelector.val());
+				var editor = tinymce.get(wpActiveEditor),
+					newContent = textareaSelector.val();
+				editor.setContent( newContent ? switchEditors.wpautop( newContent ) : '' );
 			});
 			
 			

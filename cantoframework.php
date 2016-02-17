@@ -19,6 +19,7 @@ class CTF_Init
 	{
 		require_once CTF_PATH .'core/fields/fields.class.php';
 		require_once CTF_PATH .'core/helper_class/ctfhelp.class.php';
+		require_once CTF_PATH .'core/helper_class/addon.class.php';
 		require_once CTF_PATH .'core/helper_class/sanitize.php';
 
 		$this->include_customizer_class();

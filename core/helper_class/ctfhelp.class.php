@@ -6,6 +6,8 @@
 class CTF_Help
 {
 	
+	public static $is_fields_printed_at_admin_footer = false;
+	
 	function __construct()
 	{
 	}
@@ -632,5 +634,49 @@ class CTF_Help
 		$icon_font = apply_filters( 'ctf_icon_class_array', $icon_font );
 
 		return $icon_font;
+	}
+	
+	/**
+	 * Get all fields name
+	 */
+	public static function get_all_fields_name(){
+		$all_fields = array(
+			'text',
+			'text_multi',
+			'textarea',
+			'email',
+			'number',
+			'dimension',
+			'range',
+			'password',
+			'url',
+			'select',
+			'radio',
+			'radio_image',
+			'radio_button',
+			'checkbox',
+			'checkbox_image',
+			'checkbox_button',
+			'color',
+			'color_rgba',
+			'google_font',
+			'font_style',
+			'text_align',
+			'icon',
+			'image',
+			'editor'
+		);
+		
+		/**
+		 * Filter the fields name array for adding new field from your theme or plugin
+		 */
+		apply_filters('ctf_fields_name', $all_fields);
+		
+		return $all_fields;
+	}
+	
+	
+	public static function is_fields_printed_at_admin_footer(){
+		self::$is_fields_printed_at_admin_footer = true;
 	}
 }
