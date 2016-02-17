@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name: CantoFramework
  * Plugin URI: https://www.cantothemes.com
