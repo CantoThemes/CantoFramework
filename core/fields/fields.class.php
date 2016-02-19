@@ -34,13 +34,15 @@ class CTF_Field
   public function js_template_render( $inputPath )
   {
     ?>
-    <div class="ctf-cc-container">
+    <div class="ctf-cc-container clearfix">
+      <div class="ctf-title-container">
         <# if ( data.label ) { #>
           <span class="ctf-control-title" data-ctf-tooltip="{{ data.toltip }}">{{{ data.label }}}</span>
         <# } #>
         <# if ( data.subtitle ) { #>
           <span class="ctf-customize-control-subtitle">{{{ data.subtitle }}}</span>
         <# } #>
+      </div>
         <?php include $inputPath; ?>
         <# if ( data.description ) { #>
           <p class="ctf-customize-control-description">{{{ data.description }}}</p>
