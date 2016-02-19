@@ -101,8 +101,9 @@
 
 
 /* Color Field Design */
-.ctf-fc .ctf-input-field-color{
-	max-width: 400px;
+.ctf-fc .ctf-input-field-color,
+.ctf-fc .ctf-input-field-color-rgba{
+	max-width: 312px;
 }
 .ctf-fc .wp-color-result{
 	height: 38px;
@@ -137,7 +138,7 @@
 	line-height: 38px;
 	border-width: 0;
 	border-radius: 0;
-	padding: 0px 37px 1px;
+	padding: 0px 18px 1px;
 	border-bottom: 2px solid #E8E8E8;
 	box-shadow: none;
 	background-color: #fafafa;
@@ -153,12 +154,14 @@
 }
 
 .ctf-fc .wp-picker-container input.wp-color-picker[type="text"]{
-	width: 145px;
+	width: 98px;
 }
 
 /* Form Kirki */
 .ctf-fc .ctf-input-field .wp-picker-container {
   width: 100%;
+  position: relative;
+  z-index: 9;
 }
 
 .ctf-fc .ctf-input-field .wp-picker-container .wp-picker-holder {
@@ -201,4 +204,146 @@
 	border-radius: 0;
 	width: 18px !important;
 	height: 18px !important;
+}
+
+/* RGBA Color Picker */
+.ctf-fc .ctf-alpha-container .transparency {
+    height:24px;
+    width:100%;
+    background-color:#FFF;
+    background-image:url(../images/transparency-grid.png);
+    box-shadow:0 0 5px rgba(0,0,0,0.4) inset;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding:0;
+}
+
+.ctf-fc .ctf-alpha-container .ui-slider-handle {
+    color:#777;
+    background-color: transparent;
+    text-shadow:0 1px 0 #FFF;
+    text-decoration:none;
+    position:absolute;
+    z-index:2;
+    box-shadow:0 1px 2px rgba(0,0,0,0.2);
+    border-width: 4px 3px;
+    border-style: solid;
+	border-color: #AAA;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    opacity:0.9;
+    margin-top:-5px;
+    height:20px;
+    cursor:ew-resize;
+    font-size:12px;
+    padding: 3px;
+}
+.ctf-fc .ctf-alpha-container .ui-slider-handle::before{
+	content: " ";
+	position: absolute;
+	left: -2px;
+	right: -2px;
+	top: -2px;
+	bottom: -2px;
+	border: 2px solid #FFF;
+	border-radius: 3px;
+}
+.ctf-fc .ctf-alpha-container .ui-slider-handle .ctf-rgba-val-pop{
+	position: absolute;
+	bottom: -28px;
+	left: 0;
+	width: 50px;
+	height: 20px;
+	line-height: 20px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(0, 0, 0);
+	border-radius: 25px;
+	margin-left: -22px;
+	font-weight: 300;
+	font-size: 11px;
+}
+.ctf-fc .ctf-alpha-container .ui-slider-handle .ctf-rgba-val-pop::after{
+	content: '';
+	width: 0;
+	height: 0;
+	display: block;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent #000;
+	position: absolute;
+	top: -10px;
+	left: 20px;
+}
+.ctf-fc .ctf-input-field-color-rgba .wp-picker-container .iris-picker{
+	border-bottom-width: 0;
+}
+.ctf-fc .ctf-alpha-container .ctf-alpha-container-inner{
+	position: relative;
+}
+.ctf-fc .ctf-alpha-container .ui-slider {
+	position: absolute;
+	text-align: center;
+	left: -3px;
+	right: 11px;
+}
+
+.ctf-fc .wp-picker-container a.wp-picker-open ~ div.ctf-alpha-container {
+    display:block;
+}
+
+.ctf-fc .ctf-alpha-container {
+    box-sizing:padding-box;
+    display:none;
+    border:1px solid #dfdfdf;
+    border-top:none;
+    background:#FFF;
+    padding: 6px 11px;
+}
+
+/* Spiner Input CSS */
+
+.ctf-fc input[type=number]::-webkit-outer-spin-button,
+.ctf-fc input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.ctf-fc input[type=number] {
+	padding-right: 35px;
+    -moz-appearance:textfield;
+}
+.ctf-fc .ui-spinner{
+	position: relative;
+}
+.ctf-fc .ui-spinner-button{
+	position: absolute;
+	right: 0;
+	font-size: 8px;
+	display: inline-block;
+	width: 30px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	color: #777;
+	border-left: 1px solid #eee;
+	cursor: pointer;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.ctf-fc .ui-spinner-button:hover{
+	color: #fff;
+	background-color: #06B3E6;
+}
+
+.ctf-fc .ui-spinner-up{
+	top: -10px;
+	border-bottom: 1px solid #eee;
+}
+
+.ctf-fc .ui-spinner-down{
+	bottom: -10px;
 }

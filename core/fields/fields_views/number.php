@@ -1,16 +1,17 @@
         <#
+
         var miniAttr = '';
-        if (! _.isUndefined(data.choices[ 'min' ]) ){
+        if ( !_.isUndefined(data.choices) && !_.isUndefined(data.choices[ 'min' ]) ){
         	miniAttr = 'min="'+data.choices[ 'min' ]+'"';
         }
 
         var maxAttr = '';
-        if (! _.isUndefined(data.choices[ 'max' ]) ){
+        if ( !_.isUndefined(data.choices) && !_.isUndefined(data.choices[ 'max' ]) ){
         	maxAttr = 'max="'+data.choices[ 'max' ]+'"';
         }
 
         var stepAttr = '';
-        if (! _.isUndefined(data.choices[ 'step' ]) ){
+        if ( !_.isUndefined(data.choices) && !_.isUndefined(data.choices[ 'step' ]) ){
         	stepAttr = 'step="'+data.choices[ 'step' ]+'"';
         }
         #>

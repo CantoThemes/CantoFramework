@@ -15,6 +15,7 @@ class CTF_Addon
 
 	function load_admin_js(){
 		wp_enqueue_script( 'wp-color-picker' );
+		wp_enqueue_script( 'jquery-ui-spinner' );
         wp_enqueue_script( 'ctf-core-script', CTF_URL . 'assets/js/main.js', array('jquery', 'underscore'), '1.0', true );
     }
 
