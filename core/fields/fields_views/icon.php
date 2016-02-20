@@ -3,11 +3,11 @@
           <div class="ct-iconpicker">
             <div class="ct-ip-holder">
               <div class="ct-ip-icon"><i class="{{ data.value }}"></i></div>
-              <input type="hidden" value="{{ data.value }}" class="ct-icon-value">
+              <input type="hidden" value="{{ data.value }}" class="ct-icon-value" {{{ data.link }}} />
             </div>
             <div class="ct-ip-popup clearfix">
               <div class="ct-ip-search">
-                <input type="text" class="ct-ip-search-input" placeholder="Search icon" {{{ data.link }}} />
+                <input type="text" class="ct-ip-search-input" placeholder="Search icon" />
               </div>
               <ul>
                 <# for ( key in ctf_fa_icons ) { #>
