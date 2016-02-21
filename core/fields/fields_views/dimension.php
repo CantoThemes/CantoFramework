@@ -1,25 +1,30 @@
         <#
-        var miniAttr = '';
-        if (! _.isUndefined(data.choices[ 'min' ]) ){
-        	miniAttr = 'min="'+data.choices[ 'min' ]+'"';
-        }
 
-        var maxAttr = '';
-        if (! _.isUndefined(data.choices[ 'max' ]) ){
-        	maxAttr = 'max="'+data.choices[ 'max' ]+'"';
-        }
+        var miniAttr = '',
+            maxAttr = '',
+            stepAttr = '',
+            number = parseFloat( data.value ),
+            unit = data.value.replace( parseFloat( data.value ), '' ),
+            units = ['px', '%', 'em'];
 
-        var stepAttr = '';
-        if (! _.isUndefined(data.choices[ 'step' ]) ){
-        	stepAttr = 'data-step="'+data.choices[ 'step' ]+'"';
-        }
+        if ( typeof data.choices != 'undefined' ){
+          
+          if ( ! _.isUndefined(data.choices[ 'min' ]) ){
+          	miniAttr = 'min="'+data.choices[ 'min' ]+'"';
+          }
 
-        var number = parseFloat( data.value );
-        var unit = data.value.replace( parseFloat( data.value ), '' );
+          if ( ! _.isUndefined(data.choices[ 'max' ]) ){
+          	maxAttr = 'max="'+data.choices[ 'max' ]+'"';
+          }
 
-        var units = ['px', '%', 'em'];
-        if( ! _.isEmpty(data.choices['units']) ){
-          units = data.choices['units'];
+          if ( ! _.isUndefined(data.choices[ 'step' ]) ){
+          	stepAttr = 'data-step="'+data.choices[ 'step' ]+'"';
+          }
+
+          if( ! _.isEmpty(data.choices['units']) ){
+            units = data.choices['units'];
+          }
+
         }
         #>
         <div class="ctf-input-field ctf-input-field-dimension">
@@ -27,7 +32,7 @@
             <input type="number" value="{{ number }}" {{{ miniAttr }}} {{{ maxAttr }}} {{{ stepAttr }}} {{{ data.link }}}>
           </div>
           <div class="ctf-input-dimension-select">
-            <select>
+            <select {{{ data.link }}}>
               <# for ( key in units ) { #>
                 <option value="{{ units[ key ] }}"<# if ( units[ key ] === unit ) { #>selected<# } #>>{{ units[ key ] }}</option>
               <# } #>

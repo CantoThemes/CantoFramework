@@ -135,12 +135,9 @@
 			// console.log(this);
 			this.container.on( 'change', 'input[type="checkbox"]', function() {
 				
-				var allVal = '';
+				var allVal = [];
 				mainContainer.find('input[type="checkbox"]:checked').each(function (i) {
-					if (i) {
-						allVal += '|';
-					}
-					allVal += $(this).val();
+					allVal.push($(this).val());
 				});
 				control.setting.set( allVal );
 			});
@@ -154,12 +151,9 @@
 			// console.log(this);
 			this.container.on( 'change', 'input[type="checkbox"]', function() {
 				
-				var allVal = '';
+				var allVal = [];
 				mainContainer.find('input[type="checkbox"]:checked').each(function (i) {
-					if (i) {
-						allVal += '|';
-					}
-					allVal += $(this).val();
+					allVal.push($(this).val());
 				});
 				control.setting.set( allVal );
 			});
@@ -173,12 +167,9 @@
 			// console.log(this);
 			this.container.on( 'change', 'input[type="checkbox"]', function() {
 				
-				var allVal = '';
+				var allVal = [];
 				mainContainer.find('input[type="checkbox"]:checked').each(function (i) {
-					if (i) {
-						allVal += '|';
-					}
-					allVal += $(this).val();
+					allVal.push($(this).val());
 				});
 				control.setting.set( allVal );
 			});

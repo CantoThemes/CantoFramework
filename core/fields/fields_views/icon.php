@@ -10,6 +10,13 @@
                 <input type="text" class="ct-ip-search-input" placeholder="Search icon" />
               </div>
               <ul>
+                <#
+                  var classAttr = '';
+                  if( _.isEmpty(data.value) ) {
+                    classAttr = 'class="ctf-selected"';
+                  }
+                #>
+                <li><a href="#" data-icon="" {{{ classAttr }}} data-tooltip="None">N/A</a></li>
                 <# for ( key in ctf_fa_icons ) { #>
                   <#
                     var classAttr = '';

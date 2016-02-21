@@ -98,7 +98,28 @@
 	float: left;
 	box-sizing: border-box;
 }
-
+.ctf-fc .ctf-hidden{
+	display: none  !important;
+}
+.ctf-fc .ctf-btn{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	font-size: 14px;
+	background-color: #fafafa;
+	border-color: #E8E8E8;
+	border-width: 0 0 2px;
+	border-style: solid;
+	padding: 10px 20px;
+	cursor: pointer;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.ctf-fc .ctf-btn:hover{
+	background-color: #06B3E6;
+	border-color: #009ecd;
+	color: #fff;
+}
 
 /* Color Field Design */
 .ctf-fc .ctf-input-field-color,
@@ -287,6 +308,7 @@
 	text-align: center;
 	left: -3px;
 	right: 11px;
+	height: 24px;
 }
 
 .ctf-fc .wp-picker-container a.wp-picker-open ~ div.ctf-alpha-container {
@@ -409,11 +431,429 @@
   line-height: 42px;
   text-align: center;
   border: 1px solid #eee;
-  transition: all 0.5s;
+  text-decoration: none;
+  -webkit-transition:  all 0.5s;
+  -o-transition:  all 0.5s;
+  transition:  all 0.5s;
 }
 .ctf-fc .ct-iconpicker .ct-ip-popup ul li a.ctf-selected,
 .ctf-fc .ct-iconpicker .ct-ip-popup ul li a:hover {
   color: #fff;
   background-color: #06B3E6;
   border-color: #06B3E6;
+}
+
+/* Custom Styled Select Input */
+.ctf-fc .ctf-input-field-text{
+	max-width: 400px;
+}
+.ctf-fc .selectize-input{
+	border-width: 0 0 2px;
+	padding: 11px 15px;
+	border-color: #E8E8E8;
+	border-radius: 0 !important;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background-color: #FAFAFA !important;
+}
+
+.ctf-fc .selectize-input.focus{
+	border-color: #06B3E6;
+	background-color: #FFFFFF !important;
+    box-shadow: inset 0 0 0 1px #f2f2f2;
+}
+
+.ctf-fc .selectize-dropdown{
+	margin-top: 1px;
+}
+
+.ctf-fc .selectize-control.single .selectize-input::after{
+	border-color: #777 transparent transparent;
+	right: 15px;
+	margin-top: -2px;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.ctf-fc .selectize-control.single:hover .selectize-input::after{
+	border-color: #06B3E6 transparent transparent;
+}
+
+.ctf-fc .selectize-control.single:hover .selectize-input.dropdown-active::after{
+	border-color:  transparent transparent #06B3E6 transparent;
+}
+
+/* Radio Input */
+.ctf-fc .ctf-input-field-radio label{
+	display: block;
+	vertical-align: middle;
+	padding: 5px 0;
+	font-weight: 600;
+}
+.ctf-fc .ctf-input-field-radio label span{
+	display: inline-block;
+	vertical-align: middle;
+}
+.ctf-fc .ctf-input-field-radio label input[type="radio"]{
+	display: none;
+}
+
+.ctf-fc .ctf-input-field-radio label input[type="radio"] + span.ctf-input-radio-box{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 20px;
+	border: 1px solid #D1D1D1;
+	background-color: #fff;
+	position: relative;
+	margin-right: 5px;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.ctf-fc .ctf-input-field-radio label input[type="radio"] + span.ctf-input-radio-box::after{
+	content: '';
+	width: 8px;
+	height: 8px;
+	border-radius: 8px;
+	background-color: #06B3E6;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -4px;
+	margin-left: -4px;
+	-webkit-transform: scale(0);
+	-ms-transform: scale(0);
+	-o-transform: scale(0);
+	transform: scale(0);
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.ctf-fc .ctf-input-field-radio label:hover input[type="radio"] + span.ctf-input-radio-box{
+	border-color: #06B3E6;
+}
+.ctf-fc .ctf-input-field-radio label input[type="radio"]:checked + span.ctf-input-radio-box{
+	border-color: #06B3E6;
+}
+.ctf-fc .ctf-input-field-radio label input[type="radio"]:checked + span.ctf-input-radio-box::after{
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+}
+
+/* Checkbox Input */
+.ctf-fc .ctf-input-field-checkbox label{
+	display: block;
+	vertical-align: middle;
+	padding: 5px 0;
+	font-weight: 600;
+}
+.ctf-fc .ctf-input-field-checkbox label span{
+	display: inline-block;
+	vertical-align: middle;
+}
+.ctf-fc .ctf-input-field-checkbox label input[type="checkbox"]{
+	display: none;
+}
+
+.ctf-fc .ctf-input-field-checkbox label input[type="checkbox"] + span.ctf-input-checkbox-box{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	/*border-radius: 20px;*/
+	border: 1px solid #D1D1D1;
+	background-color: #fff;
+	position: relative;
+	margin-right: 5px;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.ctf-fc .ctf-input-field-checkbox label input[type="checkbox"] + span.ctf-input-checkbox-box::after{
+	content: '';
+	width: 8px;
+	height: 8px;
+	/*border-radius: 8px;*/
+	background-color: #06B3E6;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -4px;
+	margin-left: -4px;
+	-webkit-transform: scale(0);
+	-ms-transform: scale(0);
+	-o-transform: scale(0);
+	transform: scale(0);
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.ctf-fc .ctf-input-field-checkbox label:hover input[type="checkbox"] + span.ctf-input-checkbox-box{
+	border-color: #06B3E6;
+}
+.ctf-fc .ctf-input-field-checkbox label input[type="checkbox"]:checked + span.ctf-input-checkbox-box{
+	border-color: #06B3E6;
+}
+.ctf-fc .ctf-input-field-checkbox label input[type="checkbox"]:checked + span.ctf-input-checkbox-box::after{
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+}
+
+/* Radio and Checkbox Image CSS */
+.ctf-fc .ctf-input-field-radio-image label,
+.ctf-fc .ctf-input-field-checkbox-image label{
+	display: inline-block;
+	float: left;
+	margin: 4px;
+}
+.ctf-fc .ctf-input-field-radio-image label input[type="radio"],
+.ctf-fc .ctf-input-field-checkbox-image label input[type="checkbox"]{
+	display: none;
+}
+.ctf-fc .ctf-input-field-radio-image label input[type="radio"] + img.ctf-input-radio-img,
+.ctf-fc .ctf-input-field-checkbox-image label input[type="checkbox"] + img.ctf-input-checkbox-img{
+	border-width: 3px;
+	border-style: solid;
+	border-color: transparent;
+}
+
+.ctf-fc .ctf-input-field-radio-image label input[type="radio"]:checked + img.ctf-input-radio-img,
+.ctf-fc .ctf-input-field-checkbox-image label input[type="checkbox"]:checked + img.ctf-input-checkbox-img{
+	border-color: #06B3E6;
+}
+
+/* Radio Image CSS */
+.ctf-fc .ctf-input-field-radio-button label,
+.ctf-fc .ctf-input-field-checkbox-button label{
+	display: inline-block;
+	float: left;
+	
+}
+
+/*.ctf-input-field-radio-button label:last-child,
+.ctf-input-field-checkbox-button label:last-child{
+	border-left: 0 solid #E8E8E8;
+}*/
+
+
+.ctf-fc .ctf-input-field-radio-button label input[type="radio"],
+.ctf-fc .ctf-input-field-checkbox-button label input[type="checkbox"]{
+	display: none;
+}
+
+.ctf-fc .ctf-input-field-radio-button label input[type="radio"] + span,
+.ctf-fc .ctf-input-field-checkbox-button label input[type="checkbox"] + span{
+	display: inline-block;
+	font-weight: 600;
+	padding: 10px 15px;
+	background-color: #fff;
+	border-bottom: 2px solid #E8E8E8;
+	border-left: 1px solid #E8E8E8;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.ctf-fc .ctf-input-field-radio-button label:hover input[type="radio"] + span,
+.ctf-fc .ctf-input-field-checkbox-button label:hover input[type="checkbox"] + span{
+	background-color: #F9F9F9;
+	border-bottom: 2px solid #06B3E6;
+}
+
+.ctf-fc .ctf-input-field-radio-button label input[type="radio"]:checked + span,
+.ctf-fc .ctf-input-field-checkbox-button label input[type="checkbox"]:checked + span{
+	color: #fff;
+	background-color: #06B3E6;
+	border-color: #009ecd;
+}
+
+/* Multi Text */
+.ctf-fc .ctf-mt-input-item{
+	position: relative;
+	margin-bottom: 10px;
+	max-width: 400px;
+}
+.ctf-fc .ctf-mt-input-delete {
+    background-color: #e40a0a;
+    border-width: 0;
+    border-radius: 40px;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    line-height: 16px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    opacity: 0;
+    visibility: hidden;
+    text-transform: uppercase;
+    font-size: 10px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    transition-delay: 1s;
+}
+.ctf-fc .ctf-mt-input-delete:hover{
+	-webkit-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
+	-webkit-transition-delay: 0s;
+	-o-transition-delay: 0s;
+	transition-delay: 0s;
+}
+.ctf-fc .ctf-mt-input-item:hover .ctf-mt-input-delete{
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition-delay: 0s;
+	-o-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+/* dimension */
+.ctf-fc .ctf-input-field-dimension{
+	max-width: 400px;
+}
+.ctf-fc .ctf-input-field-dimension .ctf-input-dimension-number,
+.ctf-fc .ctf-input-field-range .ctf-if-range-cont{
+	width: 75%;
+	float: left;
+	padding-right: 5px;
+	box-sizing:border-box;
+}
+
+.ctf-fc .ctf-input-field-dimension .ctf-input-dimension-select,
+.ctf-fc .ctf-input-field-range .ctf-if-txt-cont{
+	width: 25%;
+	float: left;
+	box-sizing:border-box;
+}
+
+
+/* Range CSS */
+.ctf-fc .ctf-input-field-range{
+	max-width: 400px;
+}
+.ctf-fc .ctf-input-field-range input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 13px 0;
+  background-color: transparent;
+}
+.ctf-fc .ctf-input-field-range input[type=range]:focus {
+  outline: none;
+}
+.ctf-fc .ctf-input-field-range input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  background: #fafafa;
+  border-radius: 10px;
+  border: 0px solid #010101;
+}
+.ctf-fc .ctf-input-field-range input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px rgba(111, 0, 0, 0), 0px 0px 0px rgba(137, 0, 0, 0);
+  border: 0px solid rgba(255, 30, 0, 0);
+  height: 18px;
+  width: 18px;
+  border-radius: 18px;
+  background: #06B3E6;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6.5px;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.ctf-fc .ctf-input-field-range input[type=range]::-webkit-slider-thumb:hover {
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	-webkit-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
+}
+.ctf-fc .ctf-input-field-range input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #fafafa;
+}
+.ctf-fc .ctf-input-field-range input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  background: #fafafa;
+  border-radius: 10px;
+  border: 0px solid #010101;
+}
+.ctf-fc .ctf-input-field-range input[type=range]::-moz-range-thumb {
+	box-shadow: 0px 0px 0px rgba(111, 0, 0, 0), 0px 0px 0px rgba(137, 0, 0, 0);
+	border: 0px solid rgba(255, 30, 0, 0);
+	height: 18px;
+	width: 18px;
+	border-radius: 18px;
+	background: #06B3E6;
+	cursor: pointer;
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.ctf-fc .ctf-input-field-range input[type=range]::-moz-range-thumb:hover {
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	-webkit-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
+}
+.ctf-fc .ctf-input-field-range input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.ctf-fc .ctf-input-field-range input[type=range]::-ms-fill-lower {
+  background: #676767;
+  border: 0px solid #010101;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+.ctf-fc .ctf-input-field-range input[type=range]::-ms-fill-upper {
+  background: #fafafa;
+  border: 0px solid #010101;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+.ctf-fc .ctf-input-field-range input[type=range]::-ms-thumb {
+  box-shadow: 0px 0px 0px rgba(111, 0, 0, 0), 0px 0px 0px rgba(137, 0, 0, 0);
+  border: 0px solid rgba(255, 30, 0, 0);
+  height: 18px;
+  width: 18px;
+  border-radius: 1px;
+  background: #06B3E6;
+  cursor: pointer;
+  height: 5px;
+}
+.ctf-fc .ctf-input-field-range input[type=range]:focus::-ms-fill-lower {
+  background: #fafafa;
+}
+.ctf-fc .ctf-input-field-range input[type=range]:focus::-ms-fill-upper {
+  background: #ebebeb;
 }

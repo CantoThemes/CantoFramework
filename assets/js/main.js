@@ -193,5 +193,81 @@ window.CTF_Core = window.CTF_Core || {};
             }
         });
     };
+
+
+    CTF_Core.selectInput = function ( obj ) {
+        var selectInput = obj.find( 'select' );
+
+        $( selectInput ).selectize();
+    };
+
+
+    CTF_Core.textMultiInput = function ( obj ) {
+        var inputItemsContainer = obj.find('.ctf-mt-input-container'),
+            inputItemsTmpl = obj.find('.ctf-mt-tmpl'),
+            inputItemAddNew = obj.find('.ctf-mt-add-new');
+
+        inputItemAddNew.on('click', function (e) {
+            e.preventDefault();
+            var newInput = $(inputItemsTmpl.clone());
+            newInput.removeClass('ctf-hidden');
+            newInput.removeClass('ctf-mt-tmpl');
+            newInput.find('input[type="text"]').attr('name', $(this).data('name'));
+            inputItemsContainer.append(newInput);
+            
+        });
+
+        inputItemsContainer.on( 'click', '.ctf-mt-input-delete', function(e) {
+            e.preventDefault();
+
+            var thisContainer = $(this).parent('.ctf-mt-input-item');
+
+            thisContainer.remove();
+
+        });
+    };
+
+    CTF_Core.dimensionInput = function ( obj ) {
+        var numberInput = obj.find( 'input' ),
+            selectUnit = obj.find( 'select' ),
+            inputStep = numberInput.attr('step');
+
+        if (!inputStep) {
+            inputStep = 1;
+        }
+
+        $( numberInput ).spinner({
+            step: inputStep
+        });
+
+
+        $( selectUnit ).selectize();
+    };
+
+    CTF_Core.rangeInput = function ( obj ) {
+        var rangeInput = obj.find('input[type="range"]'),
+            textInput = obj.find('input[type="number"]'),
+            inputStep = textInput.attr('step');
+
+        if (!inputStep) {
+            inputStep = 1;
+        }
+
+        $( textInput ).spinner({
+            step: inputStep
+        });
+
+        obj.on( 'change keyup paste', 'input[type="number"]', function() {
+            rangeInput.val(textInput.val());
+        });
+
+        obj.on( 'click', '.ui-spinner-button', function() {
+            rangeInput.val(textInput.val());
+        });
+
+        obj.on( 'change keyup', 'input[type="range"]', function() {
+            textInput.val($( this ).val());
+        });
+    };
     
 })( wp, jQuery );
