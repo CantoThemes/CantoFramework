@@ -12,7 +12,7 @@
           
         #>
         <div class="ctf-input-field ctf-input-field-image clearfix">
-          <input type="hidden" class="ctf-ii-data-field" value="{{ JSON.stringify(data.value) }}" >
+          <input type="hidden" class="ctf-ii-data-field" value="{{ JSON.stringify(data.value) }}" {{{ data.link }}} >
           <div class="ctf-ifi-view-image">
             <# if ( ! _.isEmpty(data.value['url']) ) { #>
               <img class="" src="{{ data.value['url'] }}" alt="" />
