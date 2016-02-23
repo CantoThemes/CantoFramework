@@ -3,9 +3,16 @@
         var miniAttr = '',
             maxAttr = '',
             stepAttr = '',
-            number = parseFloat( data.value ),
-            unit = data.value.replace( parseFloat( data.value ), '' ),
+            number = '',
+            unit = '',
             units = ['px', '%', 'em'];
+            
+        console.log( data.value );
+        
+        if ( typeof data.value != 'undefined' && ! _.isNull(data.value) ){
+          number = parseFloat( data.value );
+          unit = data.value.replace( parseFloat( data.value ), '' );
+        }
 
         if ( typeof data.choices != 'undefined' ){
           

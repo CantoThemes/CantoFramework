@@ -346,4 +346,177 @@ window.CTF_Core = window.CTF_Core || {};
 		});
     };
     
+    CTF_Core.googleFontInput = function ( obj ) {
+        var ffInput = obj.find('.ctf-gf-ff-input'),
+			fwInput = obj.find('.ctf-gf-fw-input'),
+			fzValueInput = obj.find('.ctf-gf-fz-value-input'),
+			fzUnitInput = obj.find('.ctf-gf-fz-unit-input'),
+			lhValueInput = obj.find('.ctf-gf-lh-value-input'),
+			lhUnitInput = obj.find('.ctf-gf-lh-unit-input'),
+			lsValueInput = obj.find('.ctf-gf-ls-value-input'),
+			lsUnitInput = obj.find('.ctf-gf-ls-unit-input'),
+			wsValueInput = obj.find('.ctf-gf-ws-value-input'),
+			wsUnitInput = obj.find('.ctf-gf-ws-unit-input'),
+			inputValInput = obj.find('.ctf-gf-input-val'),
+			allNewVals = {};
+
+
+		$( ffInput ).selectize();
+		$( fwInput ).selectize();
+
+		$( fzUnitInput ).selectize();
+		$( lhUnitInput ).selectize();
+		$( lsUnitInput ).selectize();
+		$( wsUnitInput ).selectize();
+
+		$( fzValueInput ).spinner();
+		$( lhValueInput ).spinner();
+		$( lsValueInput ).spinner();
+		$( wsValueInput ).spinner();
+		
+		if (ffInput.size()) {
+			allNewVals['font-family'] = ffInput.val();
+		}
+
+		if (fwInput.size()) {
+			allNewVals['font-weight'] = fwInput.val();
+		}
+
+		if (fzValueInput.size()) {
+			allNewVals['font-size'] = fzValueInput.val()+fzUnitInput.val();
+		}
+
+		if (lhValueInput.size()) {
+			allNewVals['line-height'] = lhValueInput.val()+lhUnitInput.val();
+		}
+
+		if (lsValueInput.size()) {
+			allNewVals['letter-spacing'] = lsValueInput.val()+lsUnitInput.val();
+		}
+
+		if (wsValueInput.size()) {
+			allNewVals['word-spacing'] = wsValueInput.val()+wsUnitInput.val();
+		}
+
+
+
+		// console.log();
+
+		ffInput.on( 'change', function() {
+			var fwInputVal = fwInput.val(),
+				fwArray = ctf_google_fonts[ffInput.val()], /* global ctf_google_fonts */
+				fwNewOption = '';
+
+			// control.renderContent()
+
+			if ( ! _.isEmpty( fwArray ) ) {
+				_.each(fwArray, function ( value, key, list ) {
+					var selected = '';
+					if (fwInputVal == value) {
+						selected = 'selected';
+					};
+					fwNewOption += '<option value="'+value+'" '+selected+'>'+value+'</option>';
+				});
+
+				
+
+				var refreshData = $(fwInput).data('selectize');
+
+				refreshData.destroy();
+				
+				fwInput.html(fwNewOption);
+
+				$( fwInput ).selectize();
+
+			}
+			
+			allNewVals['font-family'] = ffInput.val();
+			
+			inputValInput.val( JSON.stringify(allNewVals) );
+		});
+		
+		obj.on( 'change keyup paste', 'input[type="number"]', function() {
+			if (ffInput.size()) {
+				allNewVals['font-family'] = ffInput.val();
+			}
+
+			if (fwInput.size()) {
+				allNewVals['font-weight'] = fwInput.val();
+			}
+
+			if (fzValueInput.size()) {
+				allNewVals['font-size'] = fzValueInput.val()+fzUnitInput.val();
+			}
+
+			if (lhValueInput.size()) {
+				allNewVals['line-height'] = lhValueInput.val()+lhUnitInput.val();
+			}
+
+			if (lsValueInput.size()) {
+				allNewVals['letter-spacing'] = lsValueInput.val()+lsUnitInput.val();
+			}
+
+			if (wsValueInput.size()) {
+				allNewVals['word-spacing'] = wsValueInput.val()+wsUnitInput.val();
+			}
+            inputValInput.val( JSON.stringify(allNewVals) );
+		});
+
+		obj.on( 'click', '.ui-spinner-button', function() {
+			if (ffInput.size()) {
+				allNewVals['font-family'] = ffInput.val();
+			}
+
+			if (fwInput.size()) {
+				allNewVals['font-weight'] = fwInput.val();
+			}
+
+			if (fzValueInput.size()) {
+				allNewVals['font-size'] = fzValueInput.val()+fzUnitInput.val();
+			}
+
+			if (lhValueInput.size()) {
+				allNewVals['line-height'] = lhValueInput.val()+lhUnitInput.val();
+			}
+
+			if (lsValueInput.size()) {
+				allNewVals['letter-spacing'] = lsValueInput.val()+lsUnitInput.val();
+			}
+
+			if (wsValueInput.size()) {
+				allNewVals['word-spacing'] = wsValueInput.val()+wsUnitInput.val();
+			}
+
+            inputValInput.val( JSON.stringify(allNewVals) );
+		});
+
+		obj.on( 'change', 'select:not(.ctf-gf-ff-input)', function() {
+			if (ffInput.size()) {
+				allNewVals['font-family'] = ffInput.val();
+			}
+
+			if (fwInput.size()) {
+				allNewVals['font-weight'] = fwInput.val();
+			}
+
+			if (fzValueInput.size()) {
+				allNewVals['font-size'] = fzValueInput.val()+fzUnitInput.val();
+			}
+
+			if (lhValueInput.size()) {
+				allNewVals['line-height'] = lhValueInput.val()+lhUnitInput.val();
+			}
+
+			if (lsValueInput.size()) {
+				allNewVals['letter-spacing'] = lsValueInput.val()+lsUnitInput.val();
+			}
+
+			if (wsValueInput.size()) {
+				allNewVals['word-spacing'] = wsValueInput.val()+wsUnitInput.val();
+			}
+			
+			inputValInput.val( JSON.stringify(allNewVals) );
+		});
+    };
+    
 })( wp, jQuery );

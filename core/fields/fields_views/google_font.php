@@ -24,8 +24,16 @@
 			<# if( parseFloat(data.choices['font-size']) || _.isUndefined(data.choices['font-size']) ){ #>
 			<div class="ctf-if-gf-font-size ctf-input-field-dimension">
 				<#
-				var fzNumber = parseFloat( data.value['font-size'] );
-        		var fzUnit = data.value['font-size'].replace( parseFloat( data.value['font-size'] ), '' );
+				var fzNumber = '';
+        		var fzUnit = '';
+        		
+        		if( ! _.isUndefined(data.value['font-size']) ){
+        			fzNumber = parseFloat( data.value['font-size'] );
+        		}
+        		
+        		if( ! _.isUndefined(data.value['font-size']) ){
+        			fzUnit = data.value['font-size'].replace( parseFloat( data.value['font-size'] ), '' );
+        		}
         		
         		var units = ['px', '%', 'em'];
 		        if( ! _.isEmpty(data.choices['units']) ){
@@ -48,8 +56,17 @@
 			<# if( parseFloat(data.choices['line-height']) || _.isUndefined(data.choices['line-height']) ){ #>
 			<div class="ctf-if-gf-line-height ctf-input-field-dimension">
 				<#
-				var lhNumber = parseFloat( data.value['line-height'] );
-        		var lhUnit = data.value['font-size'].replace( parseFloat( data.value['line-height'] ), '' );
+				var lhNumber = '';
+        		var lhUnit = '';
+ 
+        		
+        		if( ! _.isUndefined(data.value['line-height']) ){
+        			lhNumber = parseFloat( data.value['line-height'] );
+        		}
+        		
+        		if( ! _.isUndefined(data.value['line-height']) ){
+        			lhUnit = data.value['line-height'].replace( parseFloat( data.value['line-height'] ), '' );
+        		}
         		
         		var units = ['px', '%', 'em'];
 		        if( ! _.isEmpty(data.choices['units']) ){
@@ -117,4 +134,5 @@
 				</div>
 			</div>
 			<# } #>
+			<input type="hidden" value="{{ JSON.stringify(data.value) }}" class="ctf-gf-input-val" {{{ data.link }}}>
         </div>
