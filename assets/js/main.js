@@ -304,6 +304,7 @@ window.CTF_Core = window.CTF_Core || {};
 			
 			allVals = {};
 			
+            allVals['thumbnail'] = attachment.sizes.thumbnail.url;
 			allVals['url'] = attachment.url;
 			allVals['id'] = attachment.id;
 			allVals['title'] = attachment.title;

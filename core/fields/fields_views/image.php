@@ -9,13 +9,22 @@
             addbtnHiddenClass = 'ctf-hidden';
           }
 
+          var imgVal = '';
+          if ( typeof data.value != 'undefined'){
+            if( _.isEmpty(data.value['thumbnail']) ) {
+              imgVal = data.value['url'];
+            } else {
+              imgVal = data.value['thumbnail'];
+            }
+          }
+
           
         #>
         <div class="ctf-input-field ctf-input-field-image clearfix">
           <input type="hidden" class="ctf-ii-data-field" value="{{ JSON.stringify(data.value) }}" {{{ data.link }}} >
           <div class="ctf-ifi-view-image">
-            <# if ( ! _.isEmpty(data.value['url']) ) { #>
-              <img class="" src="{{ data.value['url'] }}" alt="" />
+            <# if ( ! _.isEmpty(imgVal) ) { #>
+              <img class="" src="{{ imgVal }}" alt="" />
             <# } #>
           </div>
           <div class="ctf-ifi-btn-set">
