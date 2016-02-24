@@ -938,3 +938,8 @@
 .ctf-fc .button.image-change-button{
 	margin-bottom: 10px;
 }
+
+
+.ctf-fc .ctf-input-field-editor textarea{
+	max-width: none;
+}

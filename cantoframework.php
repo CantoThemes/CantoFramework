@@ -23,6 +23,10 @@ class CTF_Init
 
 		$this->include_customizer_class();
 		$this->test();
+
+		add_action('admin_footer', array($this,'print_window_js_var'));
+
+		do_action( 'after_init_ctf' );
 	}
 
 
@@ -38,8 +42,21 @@ class CTF_Init
 	}
 	
 	public function print_window_js_var (){
+
+		global $wp_version, $tinymce_version, $concatenate_scripts, $compress_scripts;
+
+		/**
+		 * Filter "tiny_mce_version" is deprecated
+		 *
+		 * The tiny_mce_version filter is not needed since external plugins are loaded directly by TinyMCE.
+		 * These plugins can be refreshed by appending query string to the URL passed to "mce_external_plugins" filter.
+		 * If the plugin has a popup dialog, a query string can be added to the button action that opens it (in the plugin's code).
+		 */
+		$version = 'ver=' . $tinymce_version;
 		
 		$ext_plugins = '';
+
+		$mce_locale = get_locale();
 		
 		/**
 		 * Filter the list of teenyMCE buttons (Text tab).
@@ -250,10 +267,41 @@ class CTF_Init
 				$ext_plugins .= 'tinymce.PluginManager.load("' . $name . '", "' . $url . '");' . "\n";
 			}
 		}
+
+
+		// WordPress default stylesheet and dashicons
+		$mce_css = array(
+			includes_url( "css/dashicons.min.css" ),
+			includes_url( 'js/tinymce' ) . '/skins/wordpress/wp-content.css?' . $version
+		);
+
+		$editor_styles = get_editor_stylesheets();
+		if ( ! empty( $editor_styles ) ) {
+			foreach ( $editor_styles as $style ) {
+				$mce_css[] = $style;
+			}
+		}
+
+		/**
+		 * Filter the comma-delimited list of stylesheets to load in TinyMCE.
+		 *
+		 * @since 2.1.0
+		 *
+		 * @param string $stylesheets Comma-delimited list of stylesheets.
+		 */
+		$mce_css = trim( apply_filters( 'mce_css', implode( ',', $mce_css ) ), ' ,' );
+
 		
         ?>
         <script type="text/javascript">
-            window.ctf_teeny_mce_buttons = {};
+            window.ctf_teeny_mce_buttons = "<?php echo implode( ',', $ctf_teeny_mce_buttons ) ?>";
+            window.ctf_mce_buttons = "<?php echo implode( ',', $mce_buttons ) ?>";
+            window.ctf_mce_buttons_2 = "<?php echo implode( ',', $mce_buttons_2 ) ?>";
+            window.ctf_mce_buttons_3 = "<?php echo implode( ',', $mce_buttons_3 ) ?>";
+            window.ctf_mce_buttons_4 = "<?php echo implode( ',', $mce_buttons_4 ) ?>";
+            window.ctf_plugins = "<?php echo implode( ',', $plugins ) ?>";
+            window.ctf_mce_css = "<?php echo $mce_css; ?>";
+            window.ctf_mce_external_plugins = <?php echo json_encode($mce_external_plugins); ?>;
     	</script>
         <?php
     }
