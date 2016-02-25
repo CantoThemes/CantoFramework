@@ -561,8 +561,12 @@ window.CTF_Core = window.CTF_Core || {};
                 setup: function(editor) {
                 }
             };
+
+            if ( wrap.hasClass( 'tmce-active' ) ) {
+                tinymce.init( init );
+            }
             
-            tinymce.init( init );
+            
 
         }
 
