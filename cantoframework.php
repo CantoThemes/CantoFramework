@@ -11,15 +11,18 @@
 define('CTF_PATH', plugin_dir_path( __FILE__ ));
 define('CTF_URL', plugin_dir_url( __FILE__ ));
 
+require_once CTF_PATH .'core/fields/fields.class.php';
+require_once CTF_PATH .'core/helper_class/ctfhelp.class.php';
+require_once CTF_PATH .'core/helper_class/addon.class.php';
+require_once CTF_PATH .'core/helper_class/sanitize.php';
+
+
 class CTF_Init
 {
 	
 	function __construct()
 	{
-		require_once CTF_PATH .'core/fields/fields.class.php';
-		require_once CTF_PATH .'core/helper_class/ctfhelp.class.php';
-		require_once CTF_PATH .'core/helper_class/addon.class.php';
-		require_once CTF_PATH .'core/helper_class/sanitize.php';
+		
 
 		$this->include_customizer_class();
 		$this->test();
@@ -28,6 +31,7 @@ class CTF_Init
 
 		do_action( 'after_init_ctf' );
 	}
+	
 
 
 	public function include_customizer_class()
