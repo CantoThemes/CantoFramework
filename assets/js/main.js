@@ -576,7 +576,7 @@ window.CTF_Core = window.CTF_Core || {};
             quicktags({
                 id: textareaSelector.attr('id'),
                 buttons: 'strong,em,link,block,del,ins,img,ul,ol,li,code,more,close'
-            })
+            });
         }
     };
     
