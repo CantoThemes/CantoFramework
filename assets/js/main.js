@@ -2,6 +2,7 @@
 window.CTF_Core = window.CTF_Core || {};
 
 (function( exports, $ ){
+    "use strict";
 
     CTF_Core.colorPicker = function( obj  ){
 
@@ -181,7 +182,6 @@ window.CTF_Core = window.CTF_Core || {};
             
             $(this).addClass('ctf-selected');
             
-            control.setting.set( iconClass );
         });
         
         $(document).mouseup(function (e){
@@ -562,7 +562,10 @@ window.CTF_Core = window.CTF_Core || {};
                 }
             };
 
+            console.log(wrap.hasClass( 'tmce-active' ));
+
             if ( wrap.hasClass( 'tmce-active' ) ) {
+                console.log(init);
                 tinymce.init( init );
             }
             

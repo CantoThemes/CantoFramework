@@ -676,7 +676,11 @@ class CTF_Help
 	}
 	
 	
-	public static function is_fields_printed_at_admin_footer(){
-		self::$is_fields_printed_at_admin_footer = true;
+	public static function is_js_tmpl_printed(){
+		return self::$is_fields_printed_at_admin_footer;
+	}
+
+	public static function set_js_tmpl_printed( $boolval ){
+		self::$is_fields_printed_at_admin_footer = $boolval;
 	}
 }

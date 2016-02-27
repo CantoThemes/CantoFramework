@@ -3,6 +3,7 @@
  */
 
 (function( exports, $ ){
+	"use strict";
 
 	var api = exports.customize;
 	api.controlConstructor.ctf_text = api.Control.extend( {

@@ -9,8 +9,8 @@ class CTF_Addon
 		// Set Fields Name
 		$this->set_fields_name();
 
-		add_action( 'admin_enqueue_scripts', array($this,'load_admin_js') );
-		add_action( 'admin_enqueue_scripts', array($this,'load_admin_css') );
+		add_action( 'admin_enqueue_scripts', array(&$this,'load_admin_js') );
+		add_action( 'admin_enqueue_scripts', array(&$this,'load_admin_css') );
 	}
 
 	function load_admin_js(){
@@ -34,7 +34,11 @@ class CTF_Addon
     }
 	
 	public function add_js_tmlp_to_admin_footer(){
-		add_action('admin_footer', array($this,'print_js_templates'));
+		if ( !CTF_Help::is_js_tmpl_printed() ) {
+			add_action('admin_footer', array($this,'print_js_templates'));
+			CTF_Help::set_js_tmpl_printed(true);
+		}
+		
 	}
 	
 	public function print_js_templates(){
