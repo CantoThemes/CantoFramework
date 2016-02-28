@@ -9,7 +9,6 @@
 	api.controlConstructor.ctf_text = api.Control.extend( {
 		ready: function() {
 			var control = this;
-			// console.log(this);
 			this.container.on( 'change keyup paste', 'input', function() {
 				control.setting.set( jQuery( this ).val() );
 			});
@@ -19,7 +18,6 @@
 	api.controlConstructor.ctf_textarea = api.Control.extend( {
 		ready: function() {
 			var control = this;
-			// console.log(this);
 			this.container.on( 'change keyup paste', 'textarea', function() {
 				control.setting.set( jQuery( this ).val() );
 			});
@@ -29,7 +27,6 @@
 	api.controlConstructor.ctf_email = api.Control.extend( {
 		ready: function() {
 			var control = this;
-			// console.log(this);
 			this.container.on( 'change keyup paste', 'input', function() {
 				control.setting.set( jQuery( this ).val() );
 			});
@@ -91,7 +88,6 @@
 	api.controlConstructor.ctf_radio = api.Control.extend( {
 		ready: function() {
 			var control = this;
-			// console.log(this);
 			this.container.on( 'change', 'input', function() {
 				control.setting.set( jQuery( this ).val() );
 			});
@@ -101,7 +97,6 @@
 	api.controlConstructor.ctf_radio_image = api.Control.extend( {
 		ready: function() {
 			var control = this;
-			// console.log(this);
 			this.container.on( 'change', 'input', function() {
 				control.setting.set( jQuery( this ).val() );
 			});
@@ -111,7 +106,6 @@
 	api.controlConstructor.ctf_radio_button = api.Control.extend( {
 		ready: function() {
 			var control = this;
-			// console.log(this);
 			this.container.on( 'change', 'input', function() {
 				control.setting.set( jQuery( this ).val() );
 			});
@@ -121,7 +115,6 @@
 	api.controlConstructor.ctf_text_align = api.Control.extend( {
 		ready: function() {
 			var control = this;
-			// console.log(this);
 			this.container.on( 'change', 'input', function() {
 				control.setting.set( jQuery( this ).val() );
 			});
@@ -133,7 +126,6 @@
 		ready: function() {
 			var control = this,
 				mainContainer = this.container;
-			// console.log(this);
 			this.container.on( 'change', 'input[type="checkbox"]', function() {
 				
 				var allVal = [];
@@ -149,7 +141,6 @@
 		ready: function() {
 			var control = this,
 				mainContainer = this.container;
-			// console.log(this);
 			this.container.on( 'change', 'input[type="checkbox"]', function() {
 				
 				var allVal = [];
@@ -165,7 +156,6 @@
 		ready: function() {
 			var control = this,
 				mainContainer = this.container;
-			// console.log(this);
 			this.container.on( 'change', 'input[type="checkbox"]', function() {
 				
 				var allVal = [];
@@ -440,7 +430,6 @@
 			$( lsValueInput ).spinner();
 			$( wsValueInput ).spinner();
 
-			console.log(ffInput.size());
 
 			if (ffInput.size()) {
 				allNewVals['font-family'] = control.setting._value['font-family'];
@@ -466,7 +455,6 @@
 				allNewVals['word-spacing'] = control.setting._value['word-spacing'];
 			}
 
-			// console.log();
 
 			ffInput.on( 'change', function() {
 				var fwInputVal = fwInput.val(),
@@ -600,13 +588,11 @@
 
 				control.setting.set( allNewVals );
 
-				console.log('Other Called');
 
 				api.previewer.refresh();
 			});
 
 
-			// console.log(this);
 			// this.container.on( 'change keyup paste', 'input', function() {
 			// 	control.setting.set( jQuery( this ).val() );
 			// });
@@ -860,14 +846,5 @@
 		}
 	});
 
-/*	api.controlConstructor.text = api.Control.extend( {
-		ready: function() {
-			var control = this;
-			// console.log(this);
-			this.container.on( 'change keyup paste', 'input', function() {
-				control.setting.set( jQuery( this ).val() );
-			});
-		}
-	});*/
 
 })( wp, jQuery );

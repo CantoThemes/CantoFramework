@@ -1,4 +1,3 @@
-<# console.log(data.link); #>
 <div class="ctf-input-field ctf-input-field-editor">
     <div id="wp-{{ data.id }}-wrap" class="wp-core-ui wp-editor-wrap tmce-active">
         <div id="wp-{{ data.id }}-editor-tools" class="wp-editor-tools hide-if-no-js">

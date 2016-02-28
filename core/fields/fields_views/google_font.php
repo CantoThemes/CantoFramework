@@ -2,7 +2,6 @@
         	<# if( parseFloat(data.choices['font-family']) || _.isUndefined(data.choices['font-family']) ){ #>
 			<div class="ctf-if-gf-font-family">
 				<label>Font Family</label>
-				<# console.log(data.value); #>
 				<select class="ctf-gf-ff-input">
 					<# for ( key in ctf_google_fonts ) { #>
 						<option value="{{ key }}"<# if ( key === data.value['font-family'] ) { #>selected<# } #>>{{ key }}</option>

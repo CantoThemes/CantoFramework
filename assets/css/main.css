@@ -943,3 +943,49 @@
 .ctf-fc .ctf-input-field-editor textarea{
 	max-width: none;
 }
+
+/* Google font controll css */
+.ctf-fc .ctf-input-field-google-font{
+	margin-right: -5px;
+	max-width: 400px;
+}
+.ctf-fc .ctf-input-field-google-font .ctf-if-gf-font-family,
+.ctf-fc .ctf-input-field-google-font .ctf-if-gf-font-size,
+.ctf-fc .ctf-input-field-google-font .ctf-if-gf-font-weight,
+.ctf-fc .ctf-input-field-google-font .ctf-if-gf-font-size,
+.ctf-fc .ctf-input-field-google-font .ctf-if-gf-line-height,
+.ctf-fc .ctf-input-field-google-font .ctf-if-gf-letter-spacing,
+.ctf-fc .ctf-input-field-google-font .ctf-if-gf-word-spacing{
+	width: 50%;
+	float: left;
+	box-sizing:border-box;
+	padding-right: 5px;
+	margin-bottom: 12px;
+}
+
+.ctf-fc .ctf-input-field-google-font .ctf-if-gf-font-family{
+	width: 65%;
+}
+.ctf-fc .ctf-input-field-google-font .ctf-if-gf-font-weight{
+	width: 35%;
+}
+
+.ctf-fc .ctf-input-field-google-font .ctf-input-field-dimension .ctf-input-dimension-number{
+	width: 50%;
+	padding-right: 2px;
+}
+
+.ctf-fc .ctf-input-field-google-font .ctf-input-field-dimension .ctf-input-dimension-select{
+	width: 50%;
+}
+
+.ctf-fc .ctf-input-field-google-font label{
+	clear: both;
+	display: block;
+	padding-bottom: 5px;
+}
+
+.ctf-fc .ctf-input-field-google-font input[type=number]{
+	padding-left: 8px;
+	padding-right: 30px;
+}

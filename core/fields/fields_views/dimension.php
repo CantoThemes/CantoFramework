@@ -7,7 +7,6 @@
             unit = '',
             units = ['px', '%', 'em'];
             
-        console.log( data.value );
         
         if ( typeof data.value != 'undefined' && ! _.isNull(data.value) ){
           number = parseFloat( data.value );
