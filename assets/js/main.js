@@ -559,6 +559,9 @@ window.CTF_Core = window.CTF_Core || {};
                 plugins: ctf_plugins,
                 external_plugins: ctf_mce_external_plugins,
                 setup: function(editor) {
+                    editor.on('change keyup paste SetContent', function(e) {
+						textareaSelector.val( editor.getContent() );
+					});
                 }
             };
 
