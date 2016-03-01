@@ -8,41 +8,59 @@
  * Author URI: https://www.cantothemes.com
  */
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 define('CTF_PATH', plugin_dir_path( __FILE__ ));
 define('CTF_URL', plugin_dir_url( __FILE__ ));
 
 
 
 
-class CTF_Init
-{
+if ( ! class_exists( 'CTF_Init' ) ) :
+
+class CTF_Init {
+
+	/**
+	 * @var CTF_Init The one true CTF_Init
+	 * @since 1.0
+	 */
+	private static $instance;
+
 	
-	function __construct()
-	{
-		
+	function __construct(){}
+
+	public static function instance() {
+		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof CTF_Init ) ) {
+			self::$instance = new CTF_Init;
+			// self::$instance->setup_constants();
+
+			// add_action( 'plugins_loaded', array( self::$instance, 'load_textdomain' ) );
+
+			self::$instance->includes();
+			self::$instance->include_customizer_class();
+			self::$instance->test();
+
+			add_action('admin_footer', array(self::$instance,'print_window_js_var'));
+
+		}
+		return self::$instance;
+	}
+
+	private function includes() {
 		require_once CTF_PATH .'core/fields/fields.class.php';
 		require_once CTF_PATH .'core/helper_class/ctfhelp.class.php';
 		require_once CTF_PATH .'core/helper_class/addon.class.php';
 		require_once CTF_PATH .'core/helper_class/sanitize.php';
-
-		
-		$this->include_customizer_class();
-		$this->test();
-
-		add_action('admin_footer', array($this,'print_window_js_var'));
-
-		do_action( 'after_init_ctf' );
 	}
 	
 
 
-	public function include_customizer_class()
-	{
+	private function include_customizer_class() {
 		require_once CTF_PATH .'core/customizer/ctf_customizer.class.php';
 	}
 
 
-	public function test()
+	private function test()
 	{
 		require_once CTF_PATH .'core/customizer/test.php';
 	}
@@ -314,9 +332,13 @@ class CTF_Init
 }
 
 
-add_action( 'init', 'init_fun', 1 );
+endif; // End if class_exists check
 
-function init_fun()
+
+function init_ctf()
 {
-	$framework_init = new CTF_Init();
+	return CTF_Init::instance();
 }
+
+
+init_ctf();
