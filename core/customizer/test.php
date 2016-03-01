@@ -20,6 +20,7 @@ $options = array(
 							'id' => 'test_option',
 							'default' => 'Text Feild',
 							'type' => 'theme_mod',
+							'transport' => 'postMessage'
 						),
 						'control' => array(
 							'label'    => __( 'Text Control', 'mytheme' ),
@@ -44,6 +45,7 @@ $options = array(
 							'id' => 'test_option_rgba_color',
 							'default' => 'rgba(25,100,10,0.5)',
 							'type' => 'theme_mod',
+							'transport' => 'postMessage'
 						),
 						'control' => array(
 							'label'    => __( 'RGBA Color Control', 'mytheme' ),
