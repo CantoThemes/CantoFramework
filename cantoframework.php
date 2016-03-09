@@ -38,7 +38,6 @@ class CTF_Init {
 
 			self::$instance->includes();
 			self::$instance->include_customizer_class();
-			self::$instance->test();
 
 			add_action('admin_footer', array(self::$instance,'print_window_js_var'));
 
@@ -59,11 +58,6 @@ class CTF_Init {
 		require_once CTF_PATH .'core/customizer/ctf_customizer.class.php';
 	}
 
-
-	private function test()
-	{
-		require_once CTF_PATH .'core/customizer/test.php';
-	}
 	
 	public function print_window_js_var (){
 
