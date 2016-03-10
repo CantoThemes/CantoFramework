@@ -327,7 +327,7 @@
 						var iris = colorInput.data('a8cIris');
 	
 						alphaSlider.slider( "value", iris._color._alpha*100 );
-						alphaSlider.find('.ui-slider-handle').text(iris._color._alpha*100);
+						alphaSlider.find('.ui-slider-handle').html('<span class="ctf-rgba-val-pop">'+(iris._color._alpha)+'</span>');
 					}
 				});
 			}
