@@ -223,6 +223,7 @@
 				colorInput = control.container.find('input.ctf-color-field');
 			
 			colorInput.wpColorPicker({
+				width: 310,
 				change: function(event, ui) {
 					control.setting.set( colorInput.val() );
 				}
@@ -254,8 +255,11 @@
 					}
 					return '#' + hex;
 				}
+				
+				console.log();
 
 				colorInput.wpColorPicker({ // change some things with the color picker
+					width: 310,
 					clear: function(event, ui) {
 						// TODO reset Alpha Slider to 100
 						colorInput.val('');
@@ -272,6 +276,8 @@
 						$transparency.css('backgroundColor', ui.color.toString('no-alpha'));
 					},
 				});
+				
+				
 
 
 				$('<div class="ctf-alpha-container"><div class="ctf-alpha-container-inner"><div class="slider-alpha"></div><div class="transparency"></div></div></div>').appendTo(colorInput.parents('.wp-picker-container'));
@@ -330,6 +336,13 @@
 						alphaSlider.find('.ui-slider-handle').html('<span class="ctf-rgba-val-pop">'+(iris._color._alpha)+'</span>');
 					}
 				});
+				
+				/*setTimeout(function (){
+					// Color(colorInput.val())._color;
+					var haxe_color = Color(Color(colorInput.val()).toString('no-alpha')).toString();
+					
+					colorInput.iris('color', haxe_color);
+				}, 100);*/
 			}
 		}
 	});

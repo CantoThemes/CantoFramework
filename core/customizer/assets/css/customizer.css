@@ -857,22 +857,24 @@ input[type=number] {
 
 .ctf-input-field .wp-picker-container .iris-picker {
   width: 100% !important;
-  height: 195px !important;
+  height: 230px !important;
   padding-bottom: 10px !important;
 }
 
 .ctf-input-field .wp-picker-container .iris-picker .iris-picker-inner {
   left: 35px;
   height: 190px;
-}
+} 
+
+
 
 .ctf-input-field .wp-picker-container .iris-picker .iris-picker-inner .iris-square {
-  width: calc(100% - 35px) !important;
+  /* width: calc(100% - 35px) !important; */
   margin-right: 2%;
-}
+} 
 
 .ctf-input-field .wp-picker-container .iris-picker .iris-picker-inner .iris-slider.iris-strip {
-  height: 185px !important;
+  height: 224.75px !important;
   width: 28px !important;
 }
 

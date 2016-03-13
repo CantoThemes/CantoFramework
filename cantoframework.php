@@ -28,7 +28,13 @@ class CTF_Init {
 
 	
 	function __construct(){}
-
+	
+	/**
+	 * Create this class instance if is not created or if already 
+	 * created, return this class instance.
+	 * 
+	 * @since 1.0
+	 */
 	public static function instance() {
 		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof CTF_Init ) ) {
 			self::$instance = new CTF_Init;
