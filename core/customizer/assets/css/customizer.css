@@ -547,6 +547,7 @@ input[type=number] {
 
 .wp-picker-container a.wp-picker-open ~ div.ctf-alpha-container {
     display:block;
+    width: calc(93% - 1px);
 }
 
 .ctf-alpha-container {
@@ -847,54 +848,36 @@ input[type=number] {
 }
 
 /* Form Kirki */
-.ctf-input-field .wp-picker-container {
-  width: 100%;
-}
-
-.ctf-input-field .wp-picker-container .wp-picker-holder {
-  width: calc(100% - 2px);
-}
-
 .ctf-input-field .wp-picker-container .iris-picker {
   width: 100% !important;
-  height: 230px !important;
-  padding-bottom: 10px !important;
+  padding-bottom: 3px !important;
 }
-
 .ctf-input-field .wp-picker-container .iris-picker .iris-picker-inner {
   left: 35px;
   height: 190px;
 } 
-
-
-
 .ctf-input-field .wp-picker-container .iris-picker .iris-picker-inner .iris-square {
-  /* width: calc(100% - 35px) !important; */
   margin-right: 2%;
 } 
-
 .ctf-input-field .wp-picker-container .iris-picker .iris-picker-inner .iris-slider.iris-strip {
   height: 224.75px !important;
   width: 28px !important;
 }
-
 .ctf-input-field .iris-palette-container {
   width: 20px;
   left: 8px;
   top: 10px;
   text-align: center;
 }
-
 .ctf-input-field .iris-palette-container a {
 	display: inline-block;
 	margin-left: 0 !important;
-	margin-bottom: 3px;
+	margin-bottom: 9px;
 	border: 1px solid rgba(0, 0, 0, 0.06);
 	border-radius: 0;
 	width: 18px !important;
 	height: 18px !important;
 }
-
 /* Media */
 .button.image-upload-button,
 .button.image-change-button{
