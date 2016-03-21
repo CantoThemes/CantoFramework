@@ -664,7 +664,8 @@ class CTF_Help
 			'text_align',
 			'icon',
 			'image',
-			'editor'
+			'editor',
+			'image_multi'
 		);
 		
 		/**

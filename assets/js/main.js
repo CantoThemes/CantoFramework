@@ -49,13 +49,11 @@ window.CTF_Core = window.CTF_Core || {};
                 clear: function(event, ui) {
                     // TODO reset Alpha Slider to 100
                     colorInput.val('');
-                    // control.setting.set( '' );
                 },
                 change: function(event, ui) {
                     // send ajax request to wp.customizer to enable Save & Publish button
                     var _new_value = colorInput.val();
 
-                    // control.setting.set( _new_value );
                     // change the background color of our transparency container whenever a color is updated
                     var $transparency = colorInput.parents('.wp-picker-container:first').find('.transparency');
                     // we only want to show the color at 100% alpha
@@ -80,7 +78,6 @@ window.CTF_Core = window.CTF_Core || {};
                     $(this).find('.ui-slider-handle').html('<span class="ctf-rgba-val-pop">'+(ui.value / 100)+'</span>'); // show value on slider handle
                     // send ajax request to wp.customizer to enable Save & Publish button
                     var _new_value = colorInput.val();
-                    // control.setting.set( _new_value );
                 },
                 create: function(event, ui) {
                     var v = $(this).slider('value'),
@@ -346,6 +343,107 @@ window.CTF_Core = window.CTF_Core || {};
             inputData.val('');
 			
 		});
+    };
+    
+    CTF_Core.imageMultiInput = function ( obj ) {
+        
+        var control = this,
+			addBtn = obj.find('.image-upload-button'),
+			ImageView = obj.find('.ctf-ifi-view-image-multi'),
+			inputData = obj.find('.ctf-img-multi-data-all'),
+			frame,
+			allVals = [];
+			
+		// Create a new media frame
+		frame = wp.media({
+			title: 'Select or Upload Media Of Your Chosen Persuasion',
+			button: {
+				text: 'Use this Image'
+			},
+			library: {
+				type: 'image'
+			},
+			multiple: true  // Set to true to allow multiple files to be selected
+		});
+		
+		// When an image is selected in the media frame...
+	    frame.on( 'select', function() {
+			
+			allVals = [];
+			
+			frame.state().get('selection').map(function (attachment) {
+				
+				attachment = attachment.toJSON();
+				
+				
+				var tmp_img = {};
+				
+				tmp_img['thumbnail'] = attachment.sizes.thumbnail.url;
+				tmp_img['url'] = attachment.url;
+				tmp_img['id'] = attachment.id;
+				tmp_img['title'] = attachment.title;
+				tmp_img['alt'] = attachment.alt;
+				tmp_img['width'] = attachment.width;
+				tmp_img['height'] = attachment.height;
+				
+				ImageView.append('<div class="ctf-multi-img-item"><img class="" src="'+attachment.sizes.thumbnail.url+'" alt="" /><button class="ctf-mi-item-close">x</button><input type="hidden" class="ctf-img-multi-data" value="'+_.escape(JSON.stringify(tmp_img))+'" ></div>');
+			
+				// allVals.push(tmp_img);
+				
+				
+			});
+			
+			obj.find('.ctf-img-multi-data').each(function (){
+				var temp_data = JSON.parse($(this).val());
+				allVals.push(temp_data);
+			});
+			
+			inputData.val(JSON.stringify(allVals));
+			
+			
+
+	    });
+	    
+	    console.log(frame);
+		
+		addBtn.on( 'click', function() {
+			
+			frame.open();
+		});
+		
+		ImageView.sortable({
+			update: function( event, ui ) {
+				var all_vals = [];
+			
+				obj.find('.ctf-img-multi-data').each(function (){
+					var temp_data = JSON.parse($(this).val());
+					all_vals.push(temp_data);
+				});
+				
+				inputData.val(JSON.stringify(all_vals));
+
+			}
+		});
+		
+
+		
+		obj.on( 'click', '.ctf-mi-item-close', function( e ) {
+			
+			e.preventDefault();
+			
+			$(this).parent('.ctf-multi-img-item').remove();
+			
+			var all_vals = [];
+			
+			obj.find('.ctf-img-multi-data').each(function (){
+				var temp_data = JSON.parse($(this).val());
+				all_vals.push(temp_data);
+			});
+			
+			inputData.val(JSON.stringify(all_vals));
+
+		});
+        
     };
     
     CTF_Core.googleFontInput = function ( obj ) {

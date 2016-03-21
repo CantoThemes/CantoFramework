@@ -256,7 +256,6 @@
 					return '#' + hex;
 				}
 				
-				console.log();
 
 				colorInput.wpColorPicker({ // change some things with the color picker
 					width: 310,
@@ -748,6 +747,7 @@
 				
 				allVals = {};
 				
+				allVals['thumbnail'] = attachment.sizes.thumbnail.url;
 				allVals['url'] = attachment.url;
 				allVals['id'] = attachment.id;
 				allVals['title'] = attachment.title;
@@ -788,6 +788,110 @@
 			    changeBtn.addClass('ctf-hidden');
 				
 				control.setting.set( allVals );
+			});
+		}
+	});
+	
+	api.controlConstructor.ctf_image_multi = api.Control.extend( {
+		ready: function() {
+			var control = this,
+				addBtn = control.container.find('.image-upload-button'),
+				ImageView = control.container.find('.ctf-ifi-view-image-multi'),
+				inputData = control.container.find('.ctf-img-multi-data-all'),
+				frame,
+				allVals = [];
+				
+			// Create a new media frame
+			frame = wp.media({
+				title: 'Select or Upload Media Of Your Chosen Persuasion',
+				button: {
+					text: 'Use this Image'
+				},
+				library: {
+					type: 'image'
+				},
+				multiple: true  // Set to true to allow multiple files to be selected
+			});
+			
+			// When an image is selected in the media frame...
+		    frame.on( 'select', function() {
+				
+				allVals = [];
+				
+				frame.state().get('selection').map(function (attachment) {
+					
+					attachment = attachment.toJSON();
+					
+					
+					var tmp_img = {};
+					
+					tmp_img['thumbnail'] = attachment.sizes.thumbnail.url;
+					tmp_img['url'] = attachment.url;
+					tmp_img['id'] = attachment.id;
+					tmp_img['title'] = attachment.title;
+					tmp_img['alt'] = attachment.alt;
+					tmp_img['width'] = attachment.width;
+					tmp_img['height'] = attachment.height;
+					
+					ImageView.append('<div class="ctf-multi-img-item"><img class="" src="'+attachment.sizes.thumbnail.url+'" alt="" /><button class="ctf-mi-item-close">x</button><input type="hidden" class="ctf-img-multi-data" value="'+_.escape(JSON.stringify(tmp_img))+'" ></div>');
+				
+					// allVals.push(tmp_img);
+					
+					
+				});
+				
+				control.container.find('.ctf-img-multi-data').each(function (){
+					var temp_data = JSON.parse($(this).val());
+					allVals.push(temp_data);
+				});
+				
+				inputData.val(JSON.stringify(allVals));
+				
+				
+				control.setting.set( allVals );
+		      
+		    });
+		    
+		    console.log(frame);
+			
+			addBtn.on( 'click', function() {
+				
+				frame.open();
+			});
+			
+			ImageView.sortable({
+				update: function( event, ui ) {
+					var all_vals = [];
+				
+					control.container.find('.ctf-img-multi-data').each(function (){
+						var temp_data = JSON.parse($(this).val());
+						all_vals.push(temp_data);
+					});
+					
+					inputData.val(JSON.stringify(all_vals));
+	
+					control.setting.set( all_vals );
+				}
+			});
+			
+
+			
+			control.container.on( 'click', '.ctf-mi-item-close', function( e ) {
+				
+				e.preventDefault();
+				
+				$(this).parent('.ctf-multi-img-item').remove();
+				
+				var all_vals = [];
+				
+				control.container.find('.ctf-img-multi-data').each(function (){
+					var temp_data = JSON.parse($(this).val());
+					all_vals.push(temp_data);
+				});
+				
+				inputData.val(JSON.stringify(all_vals));
+
+				control.setting.set( all_vals );
 			});
 		}
 	});

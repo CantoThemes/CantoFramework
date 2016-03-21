@@ -88,7 +88,7 @@ class CTF_Customizer
 	public function register_customizer_controls()
 	{
 		global $wp_customize;
-		$all_fields = array(
+		/*$all_fields = array(
 			'text',
 			'text_multi',
 			'textarea',
@@ -112,8 +112,11 @@ class CTF_Customizer
 			'text_align',
 			'icon',
 			'image',
-			'editor'
-		);
+			'editor',
+			'image_multi'
+		);*/
+		
+		$all_fields = CTF_Help::get_all_fields_name();
 
 		foreach ($all_fields as $field) {
 			$control = new CTF_Customize_Control( $wp_customize, 'temp', array('type' => $field) );
