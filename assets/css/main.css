@@ -47,6 +47,10 @@
 	max-height: 40px;
 }
 
+.ctf-fc img{
+	max-width: 100%;
+}
+
 .ctf-fc .ctf-cc-container input[type=text]:focus,
 .ctf-fc .ctf-cc-container input[type=password]:focus,
 .ctf-fc .ctf-cc-container input[type=checkbox]:focus,
