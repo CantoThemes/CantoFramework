@@ -139,7 +139,9 @@ window.CTF_Core = window.CTF_Core || {};
 	
 	CTF_Core.Input = CTF_Core.Class.extend({
 	    initialize: function ( id, args ){
-	    }
+	    },
+	    ready: function(){},
+	    renderContent: function(){}
 	});
 	
 	CTF_Core.Api = {};
