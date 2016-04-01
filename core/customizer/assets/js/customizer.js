@@ -905,6 +905,8 @@
 				editorSelect = control.container.find('.wp-editor-wrap'),
 				textareaSelector = control.container.find('.wp-editor-area');
 
+			console.log(control.container);
+
 			if ( typeof tinymce !== 'undefined' ) {
 				wrap = tinymce.$( '#'+editorSelect.attr('id') );
 				
