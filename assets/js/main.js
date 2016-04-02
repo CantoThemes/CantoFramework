@@ -758,7 +758,7 @@ window.CTF_Core = window.CTF_Core || {};
 	                toolbar2: ctf_mce_buttons_2,
 	                toolbar3: ctf_mce_buttons_3,
 	                toolbar4: ctf_mce_buttons_4,
-	                theme: 'modern',
+	                //theme: 'modern',
 	                skin: 'lightgray',
 	                relative_urls: false,
 	                remove_script_host: false,
@@ -776,9 +776,12 @@ window.CTF_Core = window.CTF_Core || {};
 				};
 
 				if ( wrap.hasClass( 'tmce-active' ) ) {
-	                setTimeout(function () {
+					
+					setTimeout(function () {
 	                	tinymce.init( init );
+	                	console.log(init);
 	                },50);
+	                
 	            }
 
 			}
@@ -796,7 +799,17 @@ window.CTF_Core = window.CTF_Core || {};
 				if($(this).hasClass('html-active')){
 					var editor = tinymce.get(wpActiveEditor),
 						newContent = textareaSelector.val();
-					editor.setContent( newContent ? switchEditors.wpautop( newContent ) : '' );
+						
+					if(_.isNull(editor)){
+						tinymce.init( init );
+						
+						editor = tinymce.get(wpActiveEditor);
+						
+						editor.setContent( newContent ? switchEditors.wpautop( newContent ) : '' );
+					} else {
+						editor.setContent( newContent ? switchEditors.wpautop( newContent ) : '' );
+					}
+					
 				}
 			});
 			

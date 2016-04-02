@@ -116,6 +116,10 @@ textarea{
 	transition: all 0.5s;
 }
 
+input[type=number]{
+	height: auto;
+}
+
 select{
 	max-height: 40px;
 }
