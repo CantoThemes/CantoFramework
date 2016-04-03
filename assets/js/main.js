@@ -169,8 +169,6 @@ window.CTF_Core = window.CTF_Core || {};
 
 		    	inputField.renderContent();
 	    	}
-
-	    	
 	    },
 	    getNameAttr: function ( type, id ){
 	    	return '';
@@ -189,12 +187,12 @@ window.CTF_Core = window.CTF_Core || {};
 		container: '',
 		containerId: '',
 		inputObj: {},
-	    initialize: function ( id, args, container ){
+	    initialize: function ( id, args, container, containerId ){
 	    	var input = this;
 	    	input.inputId = id;
 	    	input.inputArgs = args;
-	    	input.container = $('#ctf-metabox-'+container);
-	    	input.containerId = container;
+	    	input.container = container;
+	    	input.containerId = containerId;
 
 	    	input.deferred = {
 				renderContent: new $.Deferred()
