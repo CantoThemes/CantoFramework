@@ -145,7 +145,7 @@ window.CTF_Core = window.CTF_Core || {};
 		initialize: function ( container, args ){
 	    	this.inputArgs = args;
 	    	this.container = container;
-	    	this.containerObj = $('#ctf-metabox-'+container);
+	    	this.containerObj = container;
 
 	    	this.renderContent();
 	    },
