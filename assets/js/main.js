@@ -161,7 +161,7 @@ window.CTF_Core = window.CTF_Core || {};
 
 
 	    	if ( typeof inputFieldClss !== 'undefined' ) {
-	    		inputField = new inputFieldClss(args.type, args, this.container);
+	    		inputField = new inputFieldClss(args.type, args, this.containerObj);
 
 		    	inputField.inputNameAttr = 'name="'+this.getNameAttr( args.type, args.id )+'"';
 
@@ -737,6 +737,9 @@ window.CTF_Core = window.CTF_Core || {};
 				control = this,
 				editorSelect = control.inputObj.find('.wp-editor-wrap'),
 				textareaSelector = control.inputObj.find('.wp-editor-area');
+				
+			
+			this.editorID = textareaSelector.attr('id');
 
 
 			if ( typeof tinymce !== 'undefined' ) {
@@ -816,6 +819,13 @@ window.CTF_Core = window.CTF_Core || {};
 					newContent = textareaSelector.val();
 				editor.setContent( newContent ? switchEditors.wpautop( newContent ) : '' );
 			});
+		},
+		removeEditor: function (){
+			var theEditor = tinymce.get(this.editorID);
+
+			if (!_.isNull(theEditor)) {
+				theEditor.remove();
+			};
 		}
 	});
 
