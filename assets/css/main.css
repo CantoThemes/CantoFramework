@@ -43,6 +43,10 @@
 	transition: all 0.5s;
 }
 
+.ctf-fc .ctf-cc-container input[type=number]{
+	height: auto;
+}
+
 .ctf-fc .ctf-cc-container select{
 	max-height: 40px;
 }
