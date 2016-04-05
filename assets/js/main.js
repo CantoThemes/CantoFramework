@@ -726,7 +726,86 @@ window.CTF_Core = window.CTF_Core || {};
 	});
 	CTF_Core.Api.ctf_font_style = CTF_Core.Input.extend({});
 	CTF_Core.Api.ctf_text_align = CTF_Core.Input.extend({});
-	CTF_Core.Api.ctf_image = CTF_Core.Input.extend({});
+	CTF_Core.Api.ctf_image = CTF_Core.Input.extend({
+		ready: function (){
+			var $this = this;
+			
+			this.addBtn = this.inputObj.find('.image-upload-button');
+			this.removeBtn = this.inputObj.find('.image-remove-button');
+			this.changeBtn = this.inputObj.find('.image-change-button');
+			this.ImageView = this.inputObj.find('.ctf-ifi-view-image');
+			this.inputData = this.inputObj.find('.ctf-ii-data-field');
+			
+			
+			
+			
+			this.addBtn.on( 'click', function() {
+				$this.createFrame();
+				$this.frame.open();
+			});
+			
+			this.changeBtn.on( 'click', function() {
+				$this.createFrame();
+				$this.frame.open();
+			});
+			
+			this.removeBtn.on( 'click', function() {
+				$this.ImageView.find('img').remove();
+				
+				$this.allVals = {};
+				
+				$this.addBtn.removeClass('ctf-hidden');
+			      
+			    $this.removeBtn.addClass('ctf-hidden');
+			    $this.changeBtn.addClass('ctf-hidden');
+	
+	            $this.inputData.val('');
+				
+			});
+			
+			
+		},
+		createFrame: function (){
+			this.frame = wp.media({
+				title: 'Select Image',
+				button: {text: 'Set Image'},
+				library: {type: 'image'},
+				multiple: false
+			});
+			
+			this.selectImage();
+		},
+		selectImage: function (){
+			var $this = this;
+			console.log(typeof this.frame !== 'undefined');
+			if( typeof this.frame !== 'undefined' ){
+				$this.frame.on( 'select', function() {
+					var attachment = $this.frame.state().get('selection').first().toJSON();
+					
+					$this.ImageView.find('img').remove();
+					$this.ImageView.append('<img class="ctf-ifi-vimg" src="'+attachment.sizes.thumbnail.url+'" alt="'+attachment.alt+'" />');
+					
+					$this.allVals = {};
+					
+					$this.allVals['thumbnail'] = attachment.sizes.thumbnail.url;
+					$this.allVals['url'] = attachment.url;
+					$this.allVals['id'] = attachment.id;
+					$this.allVals['title'] = attachment.title;
+					$this.allVals['alt'] = attachment.alt;
+					$this.allVals['width'] = attachment.width;
+					$this.allVals['height'] = attachment.height;
+					
+					$this.addBtn.addClass('ctf-hidden');
+			
+					$this.removeBtn.removeClass('ctf-hidden');
+					$this.changeBtn.removeClass('ctf-hidden');
+					
+					$this.inputData.val(JSON.stringify($this.allVals));
+				});
+			}
+			
+		}
+	});
 	CTF_Core.Api.ctf_image_multi = CTF_Core.Input.extend({});
 
 	CTF_Core.Api.ctf_editor = CTF_Core.Input.extend({
