@@ -806,7 +806,105 @@ window.CTF_Core = window.CTF_Core || {};
 			
 		}
 	});
-	CTF_Core.Api.ctf_image_multi = CTF_Core.Input.extend({});
+	CTF_Core.Api.ctf_image_multi = CTF_Core.Input.extend({
+		ready: function (){
+			var $this = this;
+			
+			this.addBtn = this.inputObj.find('.image-upload-button');
+			this.ImageView = this.inputObj.find('.ctf-ifi-view-image-multi');
+			this.inputData = this.inputObj.find('.ctf-img-multi-data-all');
+			
+			
+			
+			
+			this.addBtn.on( 'click', function() {
+				$this.createFrame();
+				$this.frame.open();
+			});
+			
+			this.ImageView.sortable({
+				update: function( event, ui ) {
+					var all_vals = [];
+				
+					$this.inputObj.find('.ctf-img-multi-data').each(function (){
+						var temp_data = JSON.parse($(this).val());
+						all_vals.push(temp_data);
+					});
+					
+					$this.inputData.val(JSON.stringify(all_vals));
+	
+				}
+			});
+			
+			
+			$this.inputObj.on( 'click', '.ctf-mi-item-close', function( e ) {
+			
+				e.preventDefault();
+				
+				$(this).parent('.ctf-multi-img-item').remove();
+				
+				var all_vals = [];
+				
+				$this.inputObj.find('.ctf-img-multi-data').each(function (){
+					var temp_data = JSON.parse($(this).val());
+					all_vals.push(temp_data);
+				});
+				
+				$this.inputData.val(JSON.stringify(all_vals));
+	
+			});
+			
+			
+		},
+		createFrame: function (){
+			this.frame = wp.media({
+				title: 'Select Images',
+				button: {text: 'Set Images'},
+				library: {type: 'image'},
+				multiple: true
+			});
+			
+			this.selectImage();
+		},
+		selectImage: function (){
+			var $this = this;
+			$this.frame.on( 'select', function() {
+				
+				$this.allVals = [];
+				
+				$this.frame.state().get('selection').map(function (attachment) {
+				
+					attachment = attachment.toJSON();
+					
+					console.log(attachment);
+					
+					
+					var tmp_img = {};
+					
+					tmp_img['thumbnail'] = attachment.sizes.thumbnail.url;
+					tmp_img['url'] = attachment.url;
+					tmp_img['id'] = attachment.id;
+					tmp_img['title'] = attachment.title;
+					tmp_img['alt'] = attachment.alt;
+					tmp_img['width'] = attachment.width;
+					tmp_img['height'] = attachment.height;
+					
+					$this.ImageView.append('<div class="ctf-multi-img-item"><img class="" src="'+attachment.sizes.thumbnail.url+'" alt="" /><button class="ctf-mi-item-close">x</button><input type="hidden" class="ctf-img-multi-data" value="'+_.escape(JSON.stringify(tmp_img))+'" ></div>');
+				
+
+					
+				});
+				
+				$this.inputObj.find('.ctf-img-multi-data').each(function (){
+					var temp_data = JSON.parse($(this).val());
+					$this.allVals.push(temp_data);
+				});
+				
+				$this.inputData.val(JSON.stringify($this.allVals));
+				
+			});
+		}
+	});
 
 	CTF_Core.Api.ctf_editor = CTF_Core.Input.extend({
 		ready: function (){
