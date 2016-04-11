@@ -9,19 +9,21 @@ class CTF_Addon
 		// Set Fields Name
 		$this->set_fields_name();
 
-		add_action( 'admin_enqueue_scripts', array(&$this,'load_admin_js') );
+		add_action( 'admin_enqueue_scripts', array(&$this,'load_admin_js'), 99 );
 		add_action( 'admin_enqueue_scripts', array(&$this,'load_admin_css') );
 	}
 
 	function load_admin_js(){
+		global $tinymce_version;
+		
 		wp_enqueue_script( 'editor' );
 		wp_enqueue_script( 'quicktags' );
 		wp_enqueue_script( 'wp-color-picker' );
 		wp_enqueue_script( 'jquery-ui-spinner' );
 		wp_enqueue_media();
 		wp_enqueue_script('ctf-selectize', CTF_URL.'assets/vendor/selectize/js/standalone/selectize.min.js', array('jquery'));
-		wp_enqueue_script('ctf-tinymce', includes_url( 'js/tinymce' ).'/tinymce.min.js', array('jquery'));
-		wp_enqueue_script('ctf-tinymce-compat3x', includes_url( 'js/tinymce' ).'/plugins/compat3x/plugin.min.js', array('jquery'));
+		wp_enqueue_script('ctf-tinymce', includes_url( 'js/tinymce' ).'/tinymce.min.js', array('jquery'), $tinymce_version, true);
+		wp_enqueue_script('ctf-tinymce-compat3x', includes_url( 'js/tinymce' ).'/plugins/compat3x/plugin.min.js', array('jquery'), $tinymce_version, true);
         wp_enqueue_script( 'ctf-core-script', CTF_URL . 'assets/js/main.js', array('jquery', 'underscore'), '1.0', true );
     }
 
