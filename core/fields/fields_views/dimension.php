@@ -8,7 +8,7 @@
             units = ['px', '%', 'em'];
             
         
-        if ( typeof data.value != 'undefined' && ! _.isNull(data.value) ){
+        if ( typeof data.value != 'undefined' && ! _.isNull(data.value) && ! _.isArray(data.value) ){
           number = parseFloat( data.value );
           unit = data.value.replace( parseFloat( data.value ), '' );
         }
