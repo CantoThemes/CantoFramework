@@ -30,6 +30,7 @@ class CTF_Addon
     function load_admin_css(){
     	wp_enqueue_style( 'ctf-roboto-font', '//fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300italic,300,100italic,100' );
     	wp_enqueue_style( 'wp-color-picker' );
+    	wp_enqueue_style( 'editor-buttons' );
     	wp_enqueue_style( 'ctf-selectize', CTF_URL.'assets/vendor/selectize/css/selectize.css' );
 		wp_enqueue_style( 'ctf-font-awesome', CTF_URL.'assets/vendor/font-awesome/css/font-awesome.min.css' );
         wp_enqueue_style( 'ctf-core-style', CTF_URL.'assets/css/main.css' );
