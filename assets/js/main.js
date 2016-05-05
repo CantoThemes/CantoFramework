@@ -326,6 +326,7 @@ window.CTF_Core = window.CTF_Core || {};
 	            }
 
 	            colorInput.wpColorPicker({ // change some things with the color picker
+	            	width: 310,
 	                clear: function(event, ui) {
 	                    // TODO reset Alpha Slider to 100
 	                    colorInput.val('');
