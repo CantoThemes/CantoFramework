@@ -25,6 +25,16 @@ class CTF_Addon
 		wp_enqueue_script('ctf-tinymce', includes_url( 'js/tinymce' ).'/tinymce.min.js', array('jquery'), $tinymce_version, true);
 		wp_enqueue_script('ctf-tinymce-compat3x', includes_url( 'js/tinymce' ).'/plugins/compat3x/plugin.min.js', array('jquery'), $tinymce_version, true);
         wp_enqueue_script( 'ctf-core-script', CTF_URL . 'assets/js/main.js', array('jquery', 'underscore'), '1.0', true );
+        
+        $ctf_google_fonts_json = array(
+			'l10n_print_after' => 'ctf_google_fonts = ' . CTF_Help::get_google_font_json(),
+		);
+		wp_localize_script('ctf-core-script', 'ctf_google_fonts', $ctf_google_fonts_json);
+		
+		$ctf_fa_icons_json = array(
+			'l10n_print_after' => 'ctf_fa_icons = ' . CTF_Help::get_icons_json(),
+		);
+		wp_localize_script('ctf-core-script', 'ctf_fa_icons', $ctf_fa_icons_json);
     }
 
     function load_admin_css(){
