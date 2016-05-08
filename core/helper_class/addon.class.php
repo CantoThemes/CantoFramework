@@ -11,7 +11,17 @@ class CTF_Addon
 
 		add_action( 'admin_enqueue_scripts', array(&$this,'load_admin_js'), 99 );
 		add_action( 'admin_enqueue_scripts', array(&$this,'load_admin_css') );
+		
+		add_action('admin_head', array($this,'print_window_js_var'));
 	}
+	
+	public function print_window_js_var (){
+        ?>
+        <script type="text/javascript">
+            window.isAddon = true;
+    	</script>
+        <?php
+    }
 
 	function load_admin_js(){
 		global $tinymce_version;
