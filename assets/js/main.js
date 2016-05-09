@@ -778,7 +778,6 @@ window.CTF_Core = window.CTF_Core || {};
 		},
 		selectImage: function (){
 			var $this = this;
-			console.log(typeof this.frame !== 'undefined');
 			if( typeof this.frame !== 'undefined' ){
 				$this.frame.on( 'select', function() {
 					var attachment = $this.frame.state().get('selection').first().toJSON();
@@ -877,7 +876,6 @@ window.CTF_Core = window.CTF_Core || {};
 				
 					attachment = attachment.toJSON();
 					
-					console.log(attachment);
 					
 					
 					var tmp_img = {};
@@ -951,6 +949,9 @@ window.CTF_Core = window.CTF_Core || {};
 	                plugins: ctf_plugins,
 	                external_plugins: ctf_mce_external_plugins,
 					setup: function(editor) {
+						editor.on('change', function(e) {
+							textareaSelector.val(editor.getContent());
+						});
 					}
 				};
 
