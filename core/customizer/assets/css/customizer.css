@@ -1006,3 +1006,7 @@ input[type=number] {
 	color: #363636;
 	visibility: visible !important;
 }
+
+.expanded .wp-full-overlay-footer{
+	width: 359px;
+}

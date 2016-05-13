@@ -24,6 +24,6 @@
             <# } #>
           </div>
           
-          <button type="button" class="button image-upload-button">Add Image(s)</button>
+          <button type="button" class="ctf-btn image-upload-button">Add Image(s)</button>
           
         </div>

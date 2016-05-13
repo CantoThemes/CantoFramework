@@ -28,10 +28,10 @@
             <# } #>
           </div>
           <div class="ctf-ifi-btn-set">
-            <button type="button" class="button image-change-button {{ hiddenClass }}">Change Image</button>
-            <button type="button" class="button image-remove-button {{ hiddenClass }}">Remove Image</button>
+            <button type="button" class="ctf-btn image-change-button {{ hiddenClass }}">Change Image</button>
+            <button type="button" class="ctf-btn image-remove-button {{ hiddenClass }}">Remove Image</button>
           </div>
           
-          <button type="button" class="button image-upload-button {{ addbtnHiddenClass }}">Add Image</button>
+          <button type="button" class="ctf-btn image-upload-button {{ addbtnHiddenClass }}">Add Image</button>
           
         </div>
