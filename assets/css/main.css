@@ -90,13 +90,26 @@
 .ctf-fc .ctf-cc-container .ctf-control-title{
 	font-family: 'Roboto', sans-serif;
 	font-size: 18px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	display: block;
-	color: #000;
-	text-transform: uppercase;
-    font-weight: 300;
-    letter-spacing: 2px;
+	color: #23282D;
+	/*text-transform: uppercase;*/
+    font-weight: 400;
+    /*letter-spacing: 1px;*/
     word-spacing: 3px;
+	position: relative;
+    padding-bottom: 10px;
+}
+.ctf-fc .ctf-cc-container .ctf-control-title::after {
+    content: "";
+    display: block;
+    width: 43px;
+    height: 1px;
+    position: absolute;
+    background-color: #FFCA88;
+    bottom: 0;
+    left: 0px;
+    /* border-radius: 50%; */
 }
 
 
@@ -118,7 +131,7 @@
 }
 .ctf-fc .ctf-btn{
 	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
+	/*font-weight: 300;*/
 	font-size: 14px;
 	background-color: #06b3e6;
 	color: #fff;
@@ -133,11 +146,14 @@
     line-height: 30px;
     border-radius: 3px;
     white-space: nowrap;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    /*letter-spacing: 2px;*/
+    /*text-transform: uppercase;*/
 	-webkit-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
+}
+.ctf-fc .ctf-btn i{
+	margin-right: 10px;
 }
 .ctf-fc .ctf-btn:hover{
 	background-color: #089AC5;
@@ -148,6 +164,20 @@
 	font-size: 14px;
     line-height: 24px;
     padding: 8px 20px 6px;
+}
+
+.ctf-fc .ctf-btn.ctf-btn-small i{
+	margin-right: 5px;
+}
+
+.ctf-fc .ctf-btn.ctf-btn-cancel{
+	background-color: #F2F2F2;
+    color: #FF5151;
+}
+
+.ctf-fc .ctf-btn.ctf-btn-cancel:hover{
+	color: #fff;
+    background-color: #FF5151;
 }
 
 /* Color Field Design */
@@ -382,10 +412,12 @@
 .ctf-fc .ui-spinner-up{
 	top: -10px;
 	border-bottom: 1px solid #eee;
+	border-radius: 0 3px 0 0;
 }
 
 .ctf-fc .ui-spinner-down{
 	bottom: -10px;
+	border-radius: 0 0 3px 0;
 }
 
 
@@ -903,6 +935,10 @@
 /* Media */
 .ctf-fc .ctf-input-field-image{
 	max-width: 400px;
+}
+
+.image-remove-button{
+	margin-top: 15px;
 }
 
 

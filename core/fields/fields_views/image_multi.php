@@ -1,7 +1,7 @@
 
         <div class="ctf-input-field ctf-input-field-image-multi clearfix">
           <input type="hidden" class="ctf-img-multi-data-all" value="{{ JSON.stringify(data.value) }}" {{{ data.link }}} >
-          <div class="ctf-ifi-view-image-multi">
+          <div class="ctf-ifi-view-image-multi clearfix">
             <# if ( ! _.isEmpty(data.value) ) { #>
               <# _.each( data.value, function ( img_item ) {
               
@@ -24,6 +24,6 @@
             <# } #>
           </div>
           
-          <button type="button" class="ctf-btn image-upload-button">Add Image(s)</button>
+          <button type="button" class="ctf-btn image-upload-button"><i class="fa fa-picture-o" aria-hidden="true"></i> Add Image(s)</button>
           
         </div>
