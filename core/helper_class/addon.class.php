@@ -1,5 +1,7 @@
 <?php
 
+if ( ! class_exists( 'CTF_Addon' ) ) :
+
 class CTF_Addon
 {
 	public $all_fields = array();
@@ -86,3 +88,5 @@ class CTF_Addon
 		return $this;
 	}
 }
+
+endif; // End if class_exists check

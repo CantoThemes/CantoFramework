@@ -1,5 +1,7 @@
 <?php
 
+if ( ! class_exists( 'CTFC' ) ) :
+
 /**
  * 
  */
@@ -51,3 +53,5 @@ class CTFC
 		$manager->add_setting( $option_name.'['.$option_id.']' , $args );
 	}
 }
+
+endif; // End if class_exists check

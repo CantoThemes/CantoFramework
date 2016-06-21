@@ -1,5 +1,7 @@
 <?php
 
+if ( ! class_exists( 'CTF_Customize_Section' ) ) :
+
 /**
 * 
 */
@@ -43,3 +45,5 @@ class CTF_Customize_Section extends WP_Customize_Section
         <?php
     }
 }
+
+endif; // End if class_exists check

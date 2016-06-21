@@ -1,4 +1,7 @@
 <?php
+
+if ( ! class_exists( 'CTF_Customize_Control' ) ) :
+
 /**
 * 
 */
@@ -52,3 +55,5 @@ class CTF_Customize_Control extends WP_Customize_Control
 		$field_obj->js_template();
 	}
 }
+
+endif; // End if class_exists check

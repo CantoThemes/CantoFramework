@@ -1,4 +1,7 @@
 <?php
+
+if ( ! class_exists( 'CTF_Field' ) ) :
+
 /**
  * Class for all type of input fileds used for Option
  */
@@ -61,3 +64,5 @@ class CTF_Field
     <?php
   }
 }
+
+endif; // End if class_exists check

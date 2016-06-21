@@ -1,5 +1,7 @@
 <?php
 
+if ( ! class_exists( 'CTF_Customizer' ) ) :
+
 /**
 * 
 */
@@ -229,3 +231,6 @@ class CTF_Customizer
 		}
 	}
 }
+
+
+endif; // End if class_exists check

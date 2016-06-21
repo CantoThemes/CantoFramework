@@ -1,8 +1,7 @@
 <?php
 
-/**
-* 
-*/
+if ( ! class_exists( 'CTF_Help' ) ) :
+
 class CTF_Help
 {
 	
@@ -685,3 +684,5 @@ class CTF_Help
 		self::$is_fields_printed_at_admin_footer = $boolval;
 	}
 }
+
+endif; // End if class_exists check
