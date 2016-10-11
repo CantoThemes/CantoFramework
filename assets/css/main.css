@@ -80,17 +80,23 @@
 }
 .ctf-fc .ctf-cc-container{
 	padding: 15px 0;
+	display: table;
+	width: 100%;
+	vertical-align: middle;
+	box-sizing: border-box;
+	border-bottom: 1px solid #f1f1f1;
 }
 .ctf-fc .ctf-cc-container .ctf-title-container{
 	width: 30%;
-	float: left;
+    /*float: left;*/
 	box-sizing: border-box;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .ctf-fc .ctf-cc-container .ctf-control-title{
 	font-family: 'Roboto', sans-serif;
 	font-size: 18px;
-	margin-bottom: 10px;
 	display: block;
 	color: #23282D;
 	/*text-transform: uppercase;*/
@@ -100,7 +106,7 @@
 	position: relative;
     padding-bottom: 10px;
 }
-.ctf-fc .ctf-cc-container .ctf-control-title::after {
+/*.ctf-fc .ctf-cc-container .ctf-control-title::after {
     content: "";
     display: block;
     width: 43px;
@@ -109,22 +115,22 @@
     background-color: #FFCA88;
     bottom: 0;
     left: 0px;
-    /* border-radius: 50%; */
-}
+}*/
 
 
 .ctf-fc .ctf-cc-container .ctf-customize-control-subtitle{
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	display: block;
-	margin-bottom: 15px;
 	color: #8E8E8E;
 }
 
-.ctf-fc .ctf-cc-container .ctf-input-field{
+.ctf-fc .ctf-cc-container .ctf-input-field-container{
 	width: 70%;
-	float: left;
+	/*float: left;*/
 	box-sizing: border-box;
+	display: table-cell;
+	vertical-align: middle;
 }
 .ctf-fc .ctf-hidden{
 	display: none  !important;
@@ -249,7 +255,7 @@
 }
 
 .ctf-fc .ctf-input-field .wp-picker-container .iris-picker .iris-picker-inner .iris-square {
-  margin-right: 2%;
+  margin-right: 4%;
 }
 
 .ctf-fc .ctf-input-field .wp-picker-container .iris-picker .iris-picker-inner .iris-slider.iris-strip {
@@ -1070,6 +1076,30 @@
 	background: #fbf9ee;
 	color: #363636;
 	visibility: visible !important;
+}
+
+.ctf-fc .wp-picker-container,
+.ctf-fc .wp-picker-container:active{
+	display: block;
+}
+
+
+.ctf-mb_container{
+	margin-left: -12px;
+	margin-right: -12px;
+}
+.ctf-mb_container .ctf-cc-container{
+	padding: 30px 20px;
+}
+
+@media only screen  and (min-width: 1400px) {
+	.ctf-mb_container.ctf-fc .ctf-cc-container .ctf-input-field-container{
+		width: 70%;
+	}
+
+	.ctf-mb_container.ctf-fc .ctf-cc-container .ctf-title-container {
+	    width: 30%;
+	}
 }
 
 /* Button Design */
