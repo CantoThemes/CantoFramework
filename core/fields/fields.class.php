@@ -46,10 +46,13 @@ class CTF_Field
           <span class="ctf-customize-control-subtitle">{{{ data.subtitle }}}</span>
         <# } #>
       </div>
-        <?php include $inputPath; ?>
-        <# if ( data.description ) { #>
-          <p class="ctf-customize-control-description">{{{ data.description }}}</p>
-        <# } #>
+        <div class="ctf-input-field-container">
+          <?php include $inputPath; ?>
+          <# if ( data.description ) { #>
+            <p class="ctf-customize-control-description">{{{ data.description }}}</p>
+          <# } #>
+        </div>
+        
     </div>
     <?php
   }
