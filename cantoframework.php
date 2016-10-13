@@ -346,11 +346,13 @@ class CTF_Init {
 
 endif; // End if class_exists check
 
-
-function init_ctf()
-{
-	return CTF_Init::instance();
+if (!function_exists('init_ctf')) {
+	function init_ctf()
+	{
+		return CTF_Init::instance();
+	}
 }
 
-
-init_ctf();
+if (function_exists('init_ctf')) {
+	init_ctf();
+}
