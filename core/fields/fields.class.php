@@ -37,7 +37,7 @@ class CTF_Field
   public function js_template_render( $inputPath )
   {
     ?>
-    <div class="ctf-cc-container clearfix">
+    <div class="ctf-cc-container ctf-input-<?php echo esc_attr( $this->type ); ?> clearfix">
       <div class="ctf-title-container">
         <# if ( data.label ) { #>
           <span class="ctf-control-title" data-ctf-tooltip="{{ data.toltip }}">{{{ data.label }}}</span>
