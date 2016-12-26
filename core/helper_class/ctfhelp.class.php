@@ -665,7 +665,8 @@ class CTF_Help
 			'image',
 			'editor',
 			'image_multi',
-			'readonly'
+			'readonly',
+			'date',
 		);
 		
 		/**

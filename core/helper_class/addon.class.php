@@ -32,6 +32,7 @@ class CTF_Addon
 		wp_enqueue_script( 'quicktags' );
 		wp_enqueue_script( 'wp-color-picker' );
 		wp_enqueue_script( 'jquery-ui-spinner' );
+		wp_enqueue_script( 'jquery-ui-datepicker' );
 		wp_enqueue_media();
 		wp_enqueue_script('ctf-selectize', CTF_URL.'assets/vendor/selectize/js/standalone/selectize.min.js', array('jquery'));
 		wp_enqueue_script('ctf-tinymce', includes_url( 'js/tinymce' ).'/tinymce.min.js', array('jquery'), $tinymce_version, true);

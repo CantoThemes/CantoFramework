@@ -291,6 +291,22 @@ window.CTF_Core = window.CTF_Core || {};
 		}
 	});
 
+	CTF_Core.Api.ctf_date = CTF_Core.Input.extend({
+		ready: function (){
+			var dateInput = this.inputObj.find('input.ctf-date-field'),
+				optionsEn = dateInput.data('options'),
+				options = {};
+
+			if (!_.isEmpty(optionsEn)) {
+				options = JSON.parse(window.atob(optionsEn));
+			}
+
+	        setTimeout(function () {
+	        	dateInput.datepicker(options);
+	        }, 50);
+		}
+	});
+
 	// Color input
 	CTF_Core.Api.ctf_color = CTF_Core.Input.extend({
 		ready: function (){
