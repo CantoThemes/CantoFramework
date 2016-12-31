@@ -1,12 +1,4 @@
 <?php
-/**
- * Plugin Name: CantoFramework
- * Plugin URI: https://www.cantothemes.com
- * Description: A framework for wordpress theme and plugins
- * Version: 1.0-alpha-2
- * Author: CantoThemes
- * Author URI: https://www.cantothemes.com
- */
 
 if ( ! defined( 'ABSPATH' ) || ! defined( 'CTF_PATH' ) || ! defined( 'CTF_URL' ) ){
 	exit;
@@ -57,7 +49,7 @@ class CTF_Init {
 		require_once CTF_PATH .'core/fields/fields.class.php';
 		require_once CTF_PATH .'core/helper_class/ctfhelp.class.php';
 		require_once CTF_PATH .'core/helper_class/addon.class.php';
-		require_once CTF_PATH .'core/helper_class/sanitize.php';
+		// require_once CTF_PATH .'core/helper_class/sanitize.php';
 	}
 
 	public function register_assets()
