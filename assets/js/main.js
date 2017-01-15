@@ -639,9 +639,10 @@ window.CTF_Core = window.CTF_Core || {};
 				if ( ! _.isEmpty( fwArray ) ) {
 					_.each(fwArray, function ( value, key, list ) {
 						var selected = '';
-						if (fwInputVal == value) {
+						if ((fwInputVal == value) || (_.isEmpty(fwInputVal) && key == 0)) {
 							selected = 'selected';
 						};
+						console.log((fwInputVal == value) || (_.isEmpty(fwInputVal) && key == 0));
 						fwNewOption += '<option value="'+value+'" '+selected+'>'+value+'</option>';
 					});
 
@@ -658,6 +659,7 @@ window.CTF_Core = window.CTF_Core || {};
 				}
 				
 				allNewVals['font-family'] = ffInput.val();
+				allNewVals['font-weight'] = fwInput.val();
 				
 				inputValInput.val( JSON.stringify(allNewVals) );
 			});
