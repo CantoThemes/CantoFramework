@@ -5,7 +5,8 @@
             stepAttr = '',
             number = '',
             unit = '',
-            units = ['px', '%', 'em'];
+            units = ['px', '%', 'em'],
+            value = '';
             
         
         if ( typeof data.value != 'undefined' && ! _.isNull(data.value) && ! _.isArray(data.value) ){
@@ -32,10 +33,14 @@
           }
 
         }
+
+        if( ! _.isEmpty(number) ){
+          value = 'value="'+number+'"';
+        }
         #>
         <div class="ctf-input-field ctf-input-field-dimension">
           <div class="ctf-input-dimension-number">
-            <input type="number" value="{{ number }}" {{{ miniAttr }}} {{{ maxAttr }}} {{{ stepAttr }}} {{{ data.link }}}>
+            <input type="number" {{{ value }}} {{{ miniAttr }}} {{{ maxAttr }}} {{{ stepAttr }}} {{{ data.link }}}>
           </div>
           <div class="ctf-input-dimension-select">
             <select {{{ data.link }}}>

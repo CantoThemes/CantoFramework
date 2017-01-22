@@ -14,7 +14,11 @@
         if ( !_.isUndefined(data.choices) && !_.isUndefined(data.choices[ 'step' ]) ){
         	stepAttr = 'step="'+data.choices[ 'step' ]+'"';
         }
+
+        if( ! _.isEmpty(data.value) ){
+            value = 'value="'+data.value+'"';
+        }
         #>
         <div class="ctf-input-field ctf-input-field-number">
-          <input type="number" value="{{ data.value }}" {{{ miniAttr }}} {{{ maxAttr }}} {{{ stepAttr }}} {{{ data.link }}}>
+          <input type="number" {{{ value }}} {{{ miniAttr }}} {{{ maxAttr }}} {{{ stepAttr }}} {{{ data.link }}}>
         </div>
