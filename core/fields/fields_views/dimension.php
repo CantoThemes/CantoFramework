@@ -34,7 +34,7 @@
 
         }
 
-        if( ! _.isEmpty(number) ){
+        if( number !== '' && !_.isNaN(number) ){
           value = 'value="'+number+'"';
         }
         #>
